@@ -1,0 +1,22 @@
+
+.content
+{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header 
+{
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(1,1,1, 0.1);
+}
+
+.content-body
+{
+    height: 70%;
+    padding: 25px;
+}
