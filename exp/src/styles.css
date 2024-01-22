@@ -9,3 +9,25 @@
 body {
     font-family: 'FiraMono-Regular', sans-serif;
 }
+
+
+.hidden {
+  opacity: 0;
+  filter: blur(15px);
+  transform: translateX(-60%);
+  transition: all 0.5s;
+}
+
+.visible 
+{
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+
+@media(prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+}
