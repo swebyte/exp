@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
+/*
+rgb(240, 240, 240)
+rgb(33, 53, 85)
+rgb(79, 112, 156)
+rgb(229, 210, 131)
+*/
+
 @font-face {
     font-family: 'FiraMono-Regular';
     src: url('assets/FiraMono-Regular.ttf');
@@ -8,8 +15,22 @@
 
 body {
     font-family: 'FiraMono-Regular', sans-serif;
+    background-color: rgb(33, 53, 85);
+    color: rgb(240, 240, 240);
 }
 
+hr 
+{
+  background-color: rgb(240, 240, 240);
+  box-shadow: 0 0 50px 15px #48abe0;
+}
+
+@keyframes shadows {
+  0% { box-shadow: #48abe0 0 0 10px; }
+  50% { box-shadow: blueviolet 0 0 10px; }
+  75% { box-shadow: rebeccapurple 0 0 10px;}
+  100% { box-shadow: #48abe0 0 0 10px; }
+ }
 
 .hidden {
   opacity: 0;
