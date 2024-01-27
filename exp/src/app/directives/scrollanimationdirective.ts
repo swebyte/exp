@@ -35,7 +35,7 @@ export class ScrollAnimationDirective implements OnInit, OnDestroy {
         if (entry.isIntersecting) {
           this.renderer.addClass(this.el.nativeElement, 'visible');
         } else {
-          this.renderer.removeClass(this.el.nativeElement, 'visible');
+          // this.renderer.removeClass(this.el.nativeElement, 'visible');
         }
       });
     };

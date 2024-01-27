@@ -7,6 +7,14 @@ rgb(79, 112, 156)
 rgb(229, 210, 131)
 */
 
+:root {
+
+  --primary-color: #222831;
+  --second-color: #393e46;
+  --third-color: #0092ca;
+  --forth-color: #eeeeee;
+}
+
 @font-face {
     font-family: 'FiraMono-Regular';
     src: url('assets/FiraMono-Regular.ttf');
@@ -15,28 +23,21 @@ rgb(229, 210, 131)
 
 body {
     font-family: 'FiraMono-Regular', sans-serif;
-    background-color: rgb(33, 53, 85);
-    color: rgb(240, 240, 240);
+    background-color: var(--second-color);
+    color: var(--forth-color);
 }
 
 hr 
 {
   background-color: rgb(240, 240, 240);
-  box-shadow: 0 0 50px 15px #48abe0;
 }
-
-@keyframes shadows {
-  0% { box-shadow: #48abe0 0 0 10px; }
-  50% { box-shadow: blueviolet 0 0 10px; }
-  75% { box-shadow: rebeccapurple 0 0 10px;}
-  100% { box-shadow: #48abe0 0 0 10px; }
- }
 
 .hidden {
   opacity: 0;
-  filter: blur(15px);
-  transform: translateX(-60%);
+  filter: blur(10px);
+  transform: translateX(-60%);  
   transition: all 0.5s;
+  animation-iteration-count: 1;
 }
 
 .visible 
@@ -44,6 +45,7 @@ hr
   opacity: 1;
   filter: blur(0);
   transform: translateX(0);
+  animation-iteration-count: 1;
 }
 
 
