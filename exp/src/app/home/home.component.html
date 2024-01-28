@@ -1,73 +1,34 @@
 
+
+
 <div class="content">
     <div class="header">
         <div class="name">
-            <div class="container">
-                <div class="text">
-                <span style="--i:1">V</span>
-                <span style="--i:2">i</span>
-                <span style="--i:3">n</span>
-                <span style="--i:4">c</span>
-                <span style="--i:5">e</span>
-                <span style="--i:6">n</span>
-                <span style="--i:7">t</span>
-                <span style="--i:8"></span>
-                <span style="--i:9">K</span>
-                <span style="--i:10">a</span>
-                <span style="--i:11">r</span>
-                <span style="--i:12">l</span>
-                <span style="--i:13">s</span>
-                <span style="--i:14">s</span>
-                <span style="--i:15">o</span>
-                <span style="--i:16 ">n</span>
-                </div>
-            </div>
+            <h1>Vincent Karlsson</h1>
         </div>
     </div>
+    <nav class="navbar">
+        <ul class="navbar-links">
+          <li><a routerLink="/">Erfarenheter</a></li>
+          <li><a routerLink="/aboutme">Om mig</a></li>
+        </ul>
+      </nav>
     <div class="headeranim"></div>
     <div class="content-body">
         <div class="content-body-left"></div>
         <div class="content-body-center">
             <div>
-                <article class="hidden" appScrollAnimation>
-                    <h3>Profil</h3>
-                    Problemlösare som strävar efter att alltid utvecklas och effektivisera arbetet med nya teknologier och strategier. Hälsa och lagarbete är för mig grunden till alla lösningar.
-                </article>
-                <article class="hidden" appScrollAnimation>
-                    <h3>Arbetslivserfarenheter</h3>
-                <small>Tenstar Simulations AB. 2013 - nuvarande							Falun</small>
-                    <ul class="hidden" appScrollAnimation>
-                        <li>Arbetat som 3D utvecklare med att simulera olika maskiner såsom grävmaskin, skotare, skördare i Tenstars “inhouse” motor med tekniker som C++, Lua och Nvidia PhysX </li>
-                        <li>Arbetat med övriga tjänster på företaget såsom bygg-script i Python till tjänster i .NET stacken och databaser i MySQL & PostgreSQL</li>
-                        <li>Var projektledare inom specialprojekt och har jobbat med andra konsultbolag för att integrera maskinstyrningssystem till simulatorerna. Jobbat med företag såsom Leica, Topcon, Trimble, Novatron.</li>
-                        <li>Deltagit i mässor världen över som teknisk expert i Paris, München & Las Vegas.</li>
-                        <li>Arbetat med IT, hosting och tagit fram lösningar för att driva företaget mer åt Cloud, Microsoft Azure</li>
-                        <li>Arbetat de senaste åren fullt med att fokusera på webbutveckling inom .NET, ASP NET, Angular, Node.js, Blazor och databaser (Fullstack).</li>
-                    </ul>
-
-                    <div class="hidden" appScrollAnimation style="display:flex; align-items: center;">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/WAL6gTMo5DA?si=7jyYhqX2VYYzz3nH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </article>
-                <article class="hidden" appScrollAnimation>
-                    <small>ABB Power Grid Systems - Sommarjobb innan 2013</small>
-                    <ul>
-                        <li>Sommarjobb två-tre år när jag studerade. Jobb inom .NET.</li>
-                    </ul>
-                </article>
-                <article class="hidden" appScrollAnimation>
-                    <h3>Snabblista på erfarenheter inom Programmering/IT</h3>
-                    .NET <ngb-rating [rate]="5" [max]="5" [readonly]="true"  /> <br>, .NET ASP REST, C#, C++, Nvidia PhysX, Nvidia Flex, Python, WPF,  DirectX 11, Node.js, Lua, HTML, CSS, SCSS, Angular, Blazor Server-side, .NET MAUI, gRPC, MySQL, PostgreSQL, Microsoft SQL, Clean Architecture, SOLID, Unit Testing, Javascript, Typescript, Microsoft Azure, Azure DevOps, IT drift & administration, Jira Administrator, Atlassian Bamboo, OpenSearch, Microsoft 365, Plastic SCM, Git, GitKraken, Linux, Windows Server, Docker, 
-                    <h3>Utbildning</h3>
-                    Playground Squad, 3D Programmering, Falun, 2013-2015
-                    Yrkesförberedande utbildning inom spelutveckling/3D
-                    NTI Gymnasiet, Falun - Inriktning El/Programmering,  2010 - 2013
-                    .NET/C++/Databaser
-                </article>
+                <router-outlet></router-outlet>
             </div>
         </div>
         <div class="content-body-right">
             <img class="profilepic" src="assets/profile.jpg"/>
+            <article>
+                Problemlösare som strävar efter att alltid utvecklas och effektivisera arbetet med nya teknologier och strategier. Hälsa och lagarbete är för mig grunden till alla lösningar.
+            </article>
+            <article>
+                <app-skills></app-skills>
+            </article>
         </div>
     </div>
 </div>
