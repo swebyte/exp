@@ -1,34 +1,4 @@
-
-
-
 <div class="content">
-    <div class="header">
-        <div class="name">
-            <h1>Vincent Karlsson</h1>
-        </div>
-    </div>
-    <nav class="navbar">
-        <ul class="navbar-links">
-          <li><a routerLink="/">Erfarenheter</a></li>
-          <li><a routerLink="/aboutme">Om mig</a></li>
-        </ul>
-      </nav>
-    <div class="headeranim"></div>
-    <div class="content-body">
-        <div class="content-body-left"></div>
-        <div class="content-body-center">
-            <div>
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-        <div class="content-body-right">
-            <img class="profilepic" src="assets/profile.jpg"/>
-            <article>
-                Problemlösare som strävar efter att alltid utvecklas och effektivisera arbetet med nya teknologier och strategier. Hälsa och lagarbete är för mig grunden till alla lösningar.
-            </article>
-            <article>
-                <app-skills></app-skills>
-            </article>
-        </div>
-    </div>
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
 </div>

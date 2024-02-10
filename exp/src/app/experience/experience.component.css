@@ -1,6 +1,14 @@
+.content-body {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
 article 
 {
     padding: 15px;
+    width: 50%;
 }
 
 article h3 {

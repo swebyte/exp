@@ -10,9 +10,9 @@ rgb(229, 210, 131)
 :root {
 
   --primary-color: #222831;
-  --second-color: #393e46;
-  --third-color: #0092ca;
-  --forth-color: #eeeeee;
+  --second-color: #393E46;
+  --third-color: #00ADB5;
+  --forth-color: #EEEEEE;
 }
 
 @font-face {
@@ -25,6 +25,7 @@ body {
     font-family: 'FiraMono-Regular', sans-serif;
     background-color: var(--second-color);
     color: var(--forth-color);
+    font-size: 12px;
 }
 
 hr 
@@ -35,8 +36,8 @@ hr
 .hidden {
   opacity: 0;
   filter: blur(10px);
-  transform: translateX(-60%);  
-  transition: all 0.5s;
+  /* transform: translateX(-60%);   */
+  transition: all 1s;
   animation-iteration-count: 1;
 }
 
@@ -44,7 +45,7 @@ hr
 {
   opacity: 1;
   filter: blur(0);
-  transform: translateX(0);
+  /* transform: translateX(0); */
   animation-iteration-count: 1;
 }
 
