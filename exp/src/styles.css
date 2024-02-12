@@ -36,8 +36,8 @@ hr
 .hidden {
   opacity: 0;
   filter: blur(10px);
-  /* transform: translateX(-60%);   */
-  transition: all 1s;
+  transform: translateX(-60%);  
+  transition: all 0.4s;
   animation-iteration-count: 1;
 }
 
@@ -45,7 +45,7 @@ hr
 {
   opacity: 1;
   filter: blur(0);
-  /* transform: translateX(0); */
+  transform: translateX(0);
   animation-iteration-count: 1;
 }
 

@@ -1,27 +1,16 @@
 <div class="content-body">
     <article>
 
-    <div class="hidden" appScrollAnimation>
+    <div>
         <h3>Arbetslivserfarenheter</h3>
-        <small>Tenstar Simulations AB. 2013 - nuvarande							Falun</small>
-        <ul class="hidden" appScrollAnimation>
-            <li>Arbetat som 3D utvecklare med att simulera olika maskiner såsom grävmaskin, skotare, skördare i Tenstars “inhouse” motor med tekniker som C++, Lua och Nvidia PhysX </li>
-            <li>Arbetat med övriga tjänster på företaget såsom bygg-script i Python till tjänster i .NET stacken och databaser i MySQL & PostgreSQL</li>
-            <li>Var projektledare inom specialprojekt och har jobbat med andra konsultbolag för att integrera maskinstyrningssystem till simulatorerna. Jobbat med företag såsom Leica, Topcon, Trimble, Novatron.</li>
-            <li>Deltagit i mässor världen över som teknisk expert i Paris, München & Las Vegas.</li>
-            <li>Arbetat med IT, hosting och tagit fram lösningar för att driva företaget mer åt Cloud, Microsoft Azure</li>
-            <li>Arbetat de senaste åren fullt med att fokusera på webbutveckling inom .NET, ASP NET, Angular, Node.js, Blazor och databaser (Fullstack).</li>
-        </ul>
 
+        @for (e of experiences; track $index) {
+            <app-experience-article [experience]="e"></app-experience-article>
+        }
+        
         <div class="hidden" appScrollAnimation style="display:flex; align-items: center;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/WAL6gTMo5DA?si=7jyYhqX2VYYzz3nH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/WAL6gTMo5DA?si=7jyYhqX2VYYzz3nH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-    </div>
-    <div class="hidden" appScrollAnimation>
-        <small>ABB Power Grid Systems - Sommarjobb innan 2013</small>
-        <ul>
-            <li>Sommarjobb två-tre år när jag studerade. Jobb inom .NET.</li>
-        </ul>
     </div>
 </article>
 </div>
