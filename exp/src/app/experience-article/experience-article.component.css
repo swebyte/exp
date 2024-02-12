@@ -1,6 +1,10 @@
+.experience-content {
+    width: 50%;
+    max-width: 800px;
+}
+
 article {
     padding: 15px;
-    width: 50%;
 }
 
 .article-header {

@@ -1,12 +1,10 @@
 .content-body {
+    padding: 15px;
     display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-
-article h3 {
+h3 {
     padding: 15px 0px 15px 0px;
 }
 
