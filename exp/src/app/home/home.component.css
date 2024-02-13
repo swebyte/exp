@@ -7,11 +7,7 @@
     width: 100%;
 }
 
-.profilepic {
-    margin: 40px;
-    width: 128px;
-    height: 128px;
-}
+
 
 .name span {
     --anim-color: #00c2ba;
