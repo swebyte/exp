@@ -4,7 +4,7 @@
     @for (skill of skills; track skill) {
         <tr>
             <td>{{skill.name}}</td>
-            <td><ngb-rating [rate]="skill.rate" [max]="5" [readonly]="true"  /></td>
+            <td><ngb-rating [rate]="skill.rate" [max]="5" [readonly]="true" [className]="'star'"/></td>
         </tr>
     }
     </table>

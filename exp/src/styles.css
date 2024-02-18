@@ -11,9 +11,10 @@ rgb(229, 210, 131)
 
   --primary-color: #222831;
   --second-color: #393E46;
-  --third-color: #00ADB5;
+  --third-color: #FD7014;
   --forth-color: #EEEEEE;
 }
+
 
 @font-face {
     font-family: 'FiraMono-Regular';

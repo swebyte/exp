@@ -2,14 +2,16 @@
     <div class="article-header">
         <span>{{experience.company}} - {{experience.role}} - {{experience.dateFrom}} - {{experience.dateTo}}</span>
     </div>
-    <small class="competence-small">
-        @for (competence of experience.competences; track competence) {
-            {{ competence }},
-        } @empty {
-            
-        }
-    </small>
-    <div class="hidden" appScrollAnimation>
+    <div class="competence-bar">
+        <small class="competence-small">
+            @for (competence of experience.competences; track competence) {
+                {{ competence }},
+            } @empty {
+                
+            }
+        </small>
+    </div>
+    <div>
         <article [innerHTML]="renderedHtml"></article>
     </div>
 </div>

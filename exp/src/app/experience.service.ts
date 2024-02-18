@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ExperienceDto } from './models/experiencedto';
-import { Observable, concatMap,from, of, switchMap, toArray } from 'rxjs';
+import { Observable, concatMap,from, map, mergeMap, of, switchMap, toArray } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,7 @@ export class ExperienceService {
       toArray()
     );
   }
+
 
   private getHtmlContent(fileName: string) {
     return this.http.get('assets/db/' + fileName, { responseType: 'text' });

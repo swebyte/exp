@@ -3,6 +3,7 @@ import { ScrollAnimationDirective } from '../directives/scrollanimationdirective
 import { ExperienceDto } from '../models/experiencedto';
 import { ExperienceArticleComponent } from '../experience-article/experience-article.component';
 import { ExperienceService } from '../experience.service';
+import { Observable } from 'rxjs';
 
 
 @Component({

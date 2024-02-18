@@ -1,5 +1,4 @@
 .experience-content {
-    width: 50%;
     max-width: 800px;
 }
 
@@ -10,9 +9,14 @@ article {
 .article-header {
     width: 100%;
     background-color: var(--primary-color);
-    height: 32px;
-    padding: 0px 5px 0px 5px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 5px;
+    /* From https://css.glass */
+  /* From https://css.glass */
+
 }
+
+
 
 .article-header span {
     line-height: 32px;
@@ -22,4 +26,12 @@ article {
     padding: 0px 5px 0px 5px;
     color: var(--third-color);
     font-size: 10px;
+}
+
+.competence-bar {
+    padding: 0px 5px 0px 5px;
+}
+
+@media screen and (max-width: 768px){
+    
 }
