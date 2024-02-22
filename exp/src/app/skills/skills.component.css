@@ -1,10 +1,18 @@
 .skills {
     text-align: left;
+    padding: 20px;
 }
 
 td {
     padding: 0px 15px 0px 0px;
+    font-size: 16px;
 }
 
-.star {
+td:nth-child(2) {
+    color: var(--third-color);
+}
+
+  
+.star.unfilled {
+    color: var(--primary-color);
 }

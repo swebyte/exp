@@ -4,7 +4,15 @@
     @for (skill of skills; track skill) {
         <tr>
             <td>{{skill.name}}</td>
-            <td><ngb-rating [rate]="skill.rate" [max]="5" [readonly]="true" [className]="'star'"/></td>
+            <td>
+                <!-- <ngb-rating [rate]="skill.rate" [max]="5" [readonly]="true" [className]="'star'"/> -->
+
+                <ngb-rating [(rate)]="skill.rate" [max]="5" [readonly]="true">
+                    <ng-template let-fill="fill" let-index="index">
+                      <span class="star" [class.filled]="fill === 5" [class.unfilled]="fill < 5">&#9733;</span>
+                    </ng-template>
+                  </ngb-rating>
+            </td>
         </tr>
     }
     </table>

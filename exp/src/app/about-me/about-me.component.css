@@ -69,4 +69,18 @@ article > p {
     height: 100%;
     align-items: center;
     justify-content: center;
+
+    background-color: var(--primary-color);
+    padding: 16px 32px 16px 32px;
+    margin: 0px;
+    text-align: center;
+    font-size: large;
+}
+
+.resume a {
+    color: var(--forth-color);
+}
+
+.resume a:hover {
+    color: var(--third-color);
 }
