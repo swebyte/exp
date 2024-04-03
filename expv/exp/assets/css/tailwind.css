@@ -2,16 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply bg-gray-50
+@font-face {
+    font-family: 'Orkney';
+    src: url('/fonts/orkney/Orkney Medium.ttf') format('ttf');
 }
 
-@layer components {
-    .btn {
-        @apply bg-[#12b488] text-white px-3 py-2 rounded-md text-sm text-white;
-    }
-
-    .card {
-        @apply p-3 rounded-md bg-white shadow-md h-full;
-    }
+body {
+    @apply bg-color2 text-color4;
+    /* font-family: 'Orkney'; */
 }

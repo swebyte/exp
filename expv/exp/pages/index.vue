@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h2>Home</h2>
-      
+        <h2>About me</h2>
+
     </div>
 </template>
 
@@ -9,7 +9,6 @@
 </script>
 
 <style scoped>
-
 h2 {
     margin-bottom: 20px;
     font-size: 36px;
@@ -18,5 +17,4 @@ h2 {
 p {
     margin: 20px 0;
 }
-
 </style>
