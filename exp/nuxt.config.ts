@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     // '~/assets/css/main.css'
   ],
   app: {
-    baseURL:  '/nuxt-github-pages/',
+    baseURL:  '/exp/',
     buildAssetsDir: 'assets'
   }
 })

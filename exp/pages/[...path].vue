@@ -2,8 +2,8 @@
 useHead({
   title: 'About me',
   description: 'My experience',
-  image: 'https://example.com/image.jpg',
-  url: 'https://example.com/experience',
+  image: 'https://swebyte.github.io/image.jpg',
+  url: 'https://swebyte.github.io/exp',
 })
 
 </script>

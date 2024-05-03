@@ -1,7 +1,7 @@
 <script setup>
 
 useHead({
-  title: 'Experience',
+  title: 'exp',
   description: 'My experience',
   image: 'https://example.com/image.jpg',
   url: 'https://example.com/experience',

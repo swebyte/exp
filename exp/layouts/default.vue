@@ -30,7 +30,7 @@ const route = useRoute();
 
 const navigation = [
     { name: 'About Me', href: '/', current: route.name === 'index' || route.name === '/' },
-    { name: 'Experience', href: '/experience', current: route.name == 'experience' },
+    { name: 'Experience', href: '/aexperience', current: route.name == 'experience' },
     { name: 'Methods', href: '/methods', current: route.name == 'methods' },
 ]
 
