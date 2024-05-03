@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Orkney';
+    src: url('/fonts/orkney/Orkney Medium.ttf') format('ttf');
+}
+
+body {
+    @apply bg-color2 text-color4;
+    /* font-family: 'Orkney'; */
+}
+
+.nuxt-content h1, .nuxt-content h2, .nuxt-content h3 {
+    @apply text-color4; /* Change the color of headings */
+}
+
+.nuxt-content p {
+    @apply text-color4; /* Change the color of paragraphs */
+}
+
+.prose {
+    @apply text-color4; /* Change the default color of prose */
+}
+
+
+.prose a {
+    @apply text-color3; /* Change the color of links in prose */
+}
