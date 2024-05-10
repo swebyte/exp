@@ -7,7 +7,7 @@ slug: skills
 ---
 
  
-### <Icon name="carbon:tools" :size="2rem"></Icon>  Verktyg
+### <Icon name="carbon:tools" :size="2rem"></Icon>  Tools
 
 * Postman
 * Docker
@@ -19,7 +19,7 @@ slug: skills
 * Visual Studio Code
 * Visual Studio
 
-### <Icon name="iconoir:agile" :size="2rem"></Icon> Metoder 
+### <Icon name="iconoir:agile" :size="2rem"></Icon> Methods 
 
 * Clean Architecture
 * SOLID principerna
@@ -29,7 +29,7 @@ slug: skills
 * Kanban
 * Scrum
 
-### <Icon name="solar:programming-broken" :size="2rem"></Icon> Programmeringsspråk
+### <Icon name="solar:programming-broken" :size="2rem"></Icon> Programming languages
 
 * MySQL
 * PostgreSQL
@@ -42,7 +42,7 @@ slug: skills
 * C#
 * C++
 
-### <Icon name="simple-icons:framework" :size="2rem"></Icon> Ramverk
+### <Icon name="simple-icons:framework" :size="2rem"></Icon> Frameworks
 
 
 * .NET, .NET Core, NET Framework .NET MAUI, .NET Blazor 
