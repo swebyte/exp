@@ -1,1 +1,0 @@
-import{_ as e,o as r,e as t}from"./CVLe5oof.js";const o=""+new URL("vk1.0SBtD8x1.jpg",import.meta.url).href,c={},s={src:o,alt:"Your Image",class:"center rounded-2xl w-[450px]"};function n(_,a){return r(),t("img",s)}const i=e(c,[["render",n]]);export{i as default};
