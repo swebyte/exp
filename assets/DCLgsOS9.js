@@ -1,1 +1,0 @@
-import{_ as s,o as t,c,f as o,g as a}from"./B2nPtec6.js";const r={},n={class:"pb-0"},l={class:"text-xs italic text-crimson"};function _(e,d){return t(),c("div",n,[o("small",l,[a(e.$slots,"default")])])}const f=s(r,[["render",_]]);export{f as default};
