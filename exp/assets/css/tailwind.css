@@ -13,7 +13,7 @@ body {
 }
 
 .nuxt-content h1, .nuxt-content h2, .nuxt-content h3 {
-    @apply text-color4; /* Change the color of headings */
+    @apply text-color4;
 }
 
 .nuxt-content p {
@@ -26,5 +26,33 @@ body {
 
 
 .prose a {
-    @apply text-color3; /* Change the color of links in prose */
+    @apply text-color4; /* Change the color of links in prose */
+}
+
+
+.prose h1 {
+    @apply text-color4; /* Change the color of links in prose */
+}
+
+.prose h2 {
+    @apply text-color4; /* Change the color of links in prose */
+}
+
+
+.prose h3 {
+    @apply text-color4; /* Change the color of links in prose */
+}
+
+.prose h4 {
+    @apply text-color4; /* Change the color of links in prose */
+}
+
+
+.prose h5 {
+    @apply text-color4; /* Change the color of links in prose */
+}
+
+
+.prose h6 {
+    @apply text-crimson; /* Change the color of links in prose */
 }

@@ -8,8 +8,9 @@ module.exports = {
         'color1': '#222831',
         'color2': '#31363F',
         'color3': '#76ABAE',
-        'color4': '#E2E8F0 ',
-        'crimson': '#ff5577'
+        'color4': '#E2E8F0',
+        'crimson': '#ff5577',
+        'crimson-light': '#ff7799',
       },
     }
   },
