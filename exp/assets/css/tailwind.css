@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Orkney';
-    src: url('/fonts/orkney/Orkney Medium.ttf') format('ttf');
+    font-family: 'Roboto';
+    src: url('~/assets/fonts/Roboto/Roboto-Light.ttf');
 }
+
+@font-face {
+    font-family: 'RobotoSlab';
+    src: url('~/assets/fonts/Roboto/RobotoSlab-Thin.ttf');
+}
+
 
 body {
     @apply bg-color2 text-color4;

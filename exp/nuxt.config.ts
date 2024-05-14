@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     }
   },
   css: [
-    // '~/assets/css/main.css'
+     '~/assets/css/main.css'
   ],
   app: {
     baseURL: process.env.NODE_ENV === 'production' ? '/exp/' : '/',

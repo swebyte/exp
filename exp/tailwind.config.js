@@ -1,5 +1,10 @@
 module.exports = {
   theme: {
+    fontFamily: {
+      robotoslab: ["RobotoSlab"],
+      roboto: ["Roboto"],
+      sans: ['Roboto']
+    },
     extend: {
       // fontFamily: {
       //   customFont: ["Orkney"],
