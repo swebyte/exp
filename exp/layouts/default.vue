@@ -1,8 +1,8 @@
 <template>
     <div>
         <header class="shadow-sm bg-color1 pt-8 pb-6">
-            <div class="flex flex-col items-center space-y-4">
-                <div class="font-robotoslab m-4 text-2xl sm:text-4xl font-bold">VINCENT KARLSSON</div>
+            <div class="flex flex-col items-center space-y-1">
+                <div class="font-robotoslab m-4 text-3xl sm:text-4xl font-bold">VINCENT KARLSSON</div>
                 <div class="flex space-x-4">
                     <NuxtLink v-for="item in navigation" 
                         :key="item.name" 
