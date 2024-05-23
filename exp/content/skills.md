@@ -13,7 +13,7 @@ slug: skills
 * Docker
 * Git
 * MySQL Workbench
-* gAdmin4
+* pgAdmin
 * Azure, Azure DevOps
 * Atlassian, Jira, Confluence,
 * Visual Studio Code
@@ -22,9 +22,9 @@ slug: skills
 ### <Icon name="iconoir:agile" :size="2rem"></Icon> Methods 
 
 * Clean Architecture
-* SOLID principerna
-* Agil utveckling 
-* Testutveckling
+* SOLID principles
+* Agile  
+* Test driven development
 * Lean
 * Kanban
 * Scrum

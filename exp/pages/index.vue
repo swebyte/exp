@@ -1,8 +1,5 @@
 <script setup>
 import Profilepicture from '~/components/content/profilepicture.vue';
-
-
-
 </script>
 
 <template>
