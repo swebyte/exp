@@ -13,9 +13,9 @@ module.exports = {
         'color1': '#222831',
         'color2': '#31363F',
         'color3': '#76ABAE',
-        'color4': '#E2E8F0',
-        'crimson': '#ff5577',
-        'crimson-light': '#ff7799',
+        'color4': '#EEEEEE',
+        'crimson': '#4CB9E7',
+        'crimson-darker': '#3A9FC4',
       },
     }
   },

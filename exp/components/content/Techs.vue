@@ -1,6 +1,6 @@
 <template>
   <div class="pb-0">
-    <small class="text-xs italic text-crimson">
+    <small class="text-m italic text-crimson">
       <slot></slot>
     </small>
   </div>
