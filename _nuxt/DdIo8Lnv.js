@@ -1,0 +1,1 @@
+import{_ as e,o as t,e as s,d as o}from"./Db1NMpat.js";const c=""+new URL("vk1.0SBtD8x1.jpg",import.meta.url).href,r={},n={class:"flex flex-col items-center bg-white"},_=o("img",{src:c,alt:"profile image",class:"w-[450px] p-0 m-0"},null,-1),a=[_];function i(l,f){return t(),s("section",n,a)}const p=e(r,[["render",i]]);export{p as default};
