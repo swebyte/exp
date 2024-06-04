@@ -1,11 +1,10 @@
 <template>
-    <footer class="relative bg-color1 pt-8 pb-6 ">
+    <footer class="relative bg-color1 py-6">
             <div class="container mx-auto px-4">
                 <div class="flex justify-center text-center ">
                 <div class="w-full lg:w-6/12 px-4">
-                    <h4 class="text-3xl fonat-semibold">Let me hear from you!</h4>
+                    <h4 class="text-3xl">Let me hear from you!</h4>
                     <h5 class="text-lg mt-0 mb-2">
-                    Find me on any of these platforms
                     </h5>
                     <div class="flex space-x-4 justify-center p-4">
                         <a href="https://github.com/swebyte"  target="_blank"><img src="https://github.com/favicon.ico" alt="GitHub" width="30"></a>
