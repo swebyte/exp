@@ -1,0 +1,1 @@
+import{_ as s,o as t,e as c,d as o,f as a}from"./CGbJpE1t.js";const r={},n={class:"pb-0"},l={class:"text-m italic text-crimson"};function _(e,d){return t(),c("div",n,[o("small",l,[a(e.$slots,"default")])])}const f=s(r,[["render",_]]);export{f as default};
