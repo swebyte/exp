@@ -1,1 +1,0 @@
-import{_ as e,o as t,e as o,d as s}from"./CY0WdcCA.js";const c=""+new URL("vk1.Dqh-dgSv.jpg",import.meta.url).href,r={},n={class:"flex flex-col items-center bg-white overflow-hidden"},l=s("img",{src:c,alt:"profile image",class:"w-full max-w-[900px] p-0 m-0 -mt-16"},null,-1),a=[l];function i(_,f){return t(),o("section",n,a)}const d=e(r,[["render",i]]);export{d as default};
