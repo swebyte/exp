@@ -36,7 +36,7 @@ export class BlogDetailComponent {
     if (id) {
       this.loadBlogPost(Number(id));
     } else {
-      this.router.navigate(['/blog']);
+      this.router.navigate(['/blog/']);
     }
   }
 
@@ -48,14 +48,14 @@ export class BlogDetailComponent {
           this.post.set(data[0]);
         } else {
           console.error('Blog post not found');
-          this.router.navigate(['/blog']);
+          this.router.navigate(['/blog/']);
         }
         this.loading.set(false);
       },
       error: (error) => {
         console.error('Failed to load blog post:', error);
         this.loading.set(false);
-        this.router.navigate(['/blog']);
+        this.router.navigate(['/blog/']);
       },
     });
   }
@@ -68,7 +68,7 @@ export class BlogDetailComponent {
       this.http.delete(`${environment.apiBaseUrl}/blog?id=eq.${postId}`).subscribe({
         next: () => {
           console.log('Blog post deleted');
-          this.router.navigate(['/blog']);
+          this.router.navigate(['/blog/']);
         },
         error: (error) => {
           console.error('Failed to delete blog post:', error);
@@ -99,6 +99,6 @@ export class BlogDetailComponent {
   }
 
   goBack() {
-    this.router.navigate(['/blog']);
+    this.router.navigate(['/blog/']);
   }
 }

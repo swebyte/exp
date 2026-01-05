@@ -16,13 +16,13 @@
     <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="isMenuCollapsed">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about" routerLinkActive="active"> About </a>
+          <a class="nav-link" routerLink="/about/" routerLinkActive="active"> About </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/blog" routerLinkActive="active"> Blog </a>
+          <a class="nav-link" routerLink="/blog/" routerLinkActive="active"> Blog </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/experience" routerLinkActive="active"> Experience </a>
+          <a class="nav-link" routerLink="/experience/" routerLinkActive="active"> Experience </a>
         </li>
       </ul>
       @if (authService.isAuthenticated()) {
