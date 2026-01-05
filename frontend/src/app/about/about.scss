@@ -48,6 +48,10 @@
   }
 
   @media (max-width: 768px) {
+    .row {
+      height: auto !important;
+    }
+
     .profile-image-container {
       min-height: 300px;
     }
