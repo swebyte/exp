@@ -1,0 +1,123 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{ isEditMode ? 'Edit Experience' : 'New Experience' }}</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss()"
+  ></button>
+</div>
+<div class="modal-body">
+  @if (errorMessage) {
+  <div class="alert alert-danger">{{ errorMessage }}</div>
+  }
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        [(ngModel)]="title"
+        name="title"
+        placeholder="e.g. Senior Developer"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="company" class="form-label">Company</label>
+      <input
+        type="text"
+        class="form-control"
+        id="company"
+        [(ngModel)]="company"
+        name="company"
+        placeholder="e.g. Tech Corp"
+        required
+      />
+    </div>
+    <app-image-upload (imageUploaded)="onImageUploaded($event)"></app-image-upload>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description (Markdown supported)</label>
+      <div class="d-flex gap-2 mb-2">
+        <button
+          type="button"
+          class="btn btn-sm"
+          [class.btn-primary]="!showPreview"
+          [class.btn-outline-primary]="showPreview"
+          (click)="showPreview = false"
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          class="btn btn-sm"
+          [class.btn-primary]="showPreview"
+          [class.btn-outline-primary]="!showPreview"
+          (click)="showPreview = true"
+        >
+          Preview
+        </button>
+      </div>
+      @if (!showPreview) {
+      <textarea
+        class="form-control"
+        id="description"
+        [(ngModel)]="description"
+        name="description"
+        rows="10"
+        placeholder="Describe your role and responsibilities... (Markdown supported)"
+        required
+      ></textarea>
+      } @else {
+      <div class="border rounded p-3" style="min-height: 250px; background-color: #fff">
+        <markdown [data]="description || '*No content yet*'"></markdown>
+      </div>
+      }
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="start_date" class="form-label">Start Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="start_date"
+          [(ngModel)]="start_date"
+          name="start_date"
+          required
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="end_date" class="form-label">End Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="end_date"
+          [(ngModel)]="end_date"
+          name="end_date"
+          [disabled]="isCurrentPosition"
+          [required]="!isCurrentPosition"
+        />
+      </div>
+    </div>
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="isCurrentPosition"
+        [(ngModel)]="isCurrentPosition"
+        name="isCurrentPosition"
+        (change)="onCurrentPositionChange()"
+      />
+      <label class="form-check-label" for="isCurrentPosition"> I currently work here </label>
+    </div>
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">
+        {{ isEditMode ? 'Update Experience' : 'Save Experience' }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

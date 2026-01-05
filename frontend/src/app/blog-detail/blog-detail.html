@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <button class="btn btn-link ps-0" (click)="goBack()">
+        <i class="bi bi-arrow-left"></i> Back
+      </button>
+    </div>
+  </div>
+  <div class="blog-detail-container">
+    @if (loading()) {
+    <div class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    } @else if (post()) {
+
+    <article class="blog-post">
+      <div class="d-flex justify-content-between align-items-start mb-3">
+        <div>
+          <h1 class="post-title">{{ post()!.title }}</h1>
+          <p class="post-date text-muted">
+            {{ post()!.created_at | date : 'MMMM d, yyyy' }}
+          </p>
+        </div>
+        @if (authService.isAuthenticated()) {
+        <div class="d-flex gap-1">
+          <button class="btn btn-link text-primary" (click)="openEditBlogModal()" title="Edit post">
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button
+            class="btn btn-link text-danger delete-btn"
+            (click)="deleteBlogPost()"
+            title="Delete post"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+        }
+      </div>
+
+      <div class="post-body">
+        <markdown [data]="post()!.body"></markdown>
+      </div>
+    </article>
+    }
+  </div>
+</div>

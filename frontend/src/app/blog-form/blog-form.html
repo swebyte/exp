@@ -1,0 +1,75 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{ isEditMode ? 'Edit Blog Post' : 'New Blog Post' }}</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss()"
+  ></button>
+</div>
+<div class="modal-body">
+  @if (errorMessage) {
+  <div class="alert alert-danger">{{ errorMessage }}</div>
+  }
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        [(ngModel)]="title"
+        name="title"
+        placeholder="Enter blog post title"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="body" class="form-label">Content (Markdown supported)</label>
+      <app-image-upload (imageUploaded)="onImageUploaded($event)"></app-image-upload>
+      <div class="d-flex gap-2 mb-2">
+        <button
+          type="button"
+          class="btn btn-sm"
+          [class.btn-primary]="!showPreview"
+          [class.btn-outline-primary]="showPreview"
+          (click)="showPreview = false"
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          class="btn btn-sm"
+          [class.btn-primary]="showPreview"
+          [class.btn-outline-primary]="!showPreview"
+          (click)="showPreview = true"
+        >
+          Preview
+        </button>
+      </div>
+      @if (!showPreview) {
+      <textarea
+        class="form-control"
+        id="body"
+        [(ngModel)]="body"
+        name="body"
+        rows="15"
+        placeholder="Write your blog post content here... (Markdown supported)"
+        required
+      ></textarea>
+      } @else {
+      <div class="border rounded p-3" style="min-height: 400px; background-color: #fff">
+        <markdown [data]="body || '*No content yet*'"></markdown>
+      </div>
+      }
+    </div>
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">
+        {{ isEditMode ? 'Update Post' : 'Publish' }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

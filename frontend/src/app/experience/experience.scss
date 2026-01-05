@@ -1,0 +1,69 @@
+.experience-container {
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    color: #6c757d;
+    margin-bottom: 2rem;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e9ecef;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+
+      .timeline-badge {
+        position: absolute;
+        left: -2rem;
+        top: 0.9rem;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #000000;
+        border: 3px solid #fff;
+        box-shadow: 0 0 0 2px #e9ecef;
+      }
+
+      .card {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .card-title {
+          color: #495057;
+          font-weight: 600;
+        }
+
+        .delete-btn {
+          padding: 0.25rem 0.5rem;
+          opacity: 0.6;
+          transition: opacity 0.2s;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          i {
+            font-size: 1rem;
+          }
+        }
+
+        ul {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

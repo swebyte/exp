@@ -1,0 +1,46 @@
+.blog-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .blog-post {
+    .post-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #212529;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-date {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .post-body {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #495057;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .delete-btn {
+      padding: 0.25rem 0.5rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      i {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 3rem;
+  }
+}
