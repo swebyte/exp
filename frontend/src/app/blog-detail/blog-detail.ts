@@ -1,12 +1,12 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
-import { MarkdownComponent } from 'ngx-markdown';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '../services/auth.service';
-import { BlogFormComponent } from '../blog-form/blog-form';
+import { MarkdownComponent } from 'ngx-markdown';
 import { environment } from '../../environments/environment';
+import { BlogFormComponent } from '../blog-form/blog-form';
+import { AuthService } from '../services/auth.service';
 
 interface BlogPost {
   id: number;
