@@ -1,7 +1,9 @@
 .about-container {
   .row {
-    min-height: calc(100vh - 92px); // Account for navbar height
+    height: clamp(300px, calc(100vh - 92px), 1024px);
   }
+  max-width: 1600px;
+  margin: 0 auto;
 
   .profile-image-container {
     height: 100%;
@@ -22,6 +24,10 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
+
+    a {
+      text-decoration: none;
+    }
 
     h1 {
       margin-bottom: 1.5rem;
