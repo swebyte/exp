@@ -5,21 +5,23 @@
     <meta charset="utf-8" />
     <title>Redirecting...</title>
     <script type="text/javascript">
-      // GitHub Pages Angular SPA redirect: preserve path after refresh
+      // GitHub Pages Angular SPA redirect: always load /index.html but keep the original path
       (function () {
         var l = window.location;
         var pathname = l.pathname;
-        // Only redirect if not already at index.html
+        // Only redirect if not already at /index.html
         if (!pathname.endsWith('/index.html')) {
-          var newUrl =
-            l.origin +
-            (pathname.endsWith('/') ? pathname : pathname + '/') +
-            'index.html' +
-            l.search +
-            l.hash;
-          // Use history.replaceState to keep the original path in the address bar
-          window.history.replaceState(null, '', pathname + l.search + l.hash);
-          window.location.replace(newUrl);
+          // Store the original path in sessionStorage
+          sessionStorage.setItem('redirectPath', pathname + l.search + l.hash);
+          // Redirect to /index.html at the site root
+          window.location.replace(l.origin + '/index.html');
+        } else {
+          // If redirected, restore the original path for Angular to handle
+          var redirectPath = sessionStorage.getItem('redirectPath');
+          if (redirectPath) {
+            sessionStorage.removeItem('redirectPath');
+            window.history.replaceState(null, '', redirectPath);
+          }
         }
       })();
     </script>
