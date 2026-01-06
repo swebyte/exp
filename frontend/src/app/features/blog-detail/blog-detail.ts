@@ -4,20 +4,10 @@ import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownComponent } from 'ngx-markdown';
-import { environment } from '../../../environments/environment';
 import { LikeButton } from '../../components/like-button/like-button';
 import { AuthService } from '../../services/auth.service';
 import { BlogFormComponent } from '../blog/components/blog-form/blog-form';
-
-interface BlogPost {
-  id: number;
-  title: string;
-  created_at: string;
-  body: string;
-  user_id: string;
-  likes?: number;
-  author?: string;
-}
+import { BlogPost, BlogService } from '../blog/blog.service';
 
 @Component({
   selector: 'app-blog-detail',
@@ -27,6 +17,7 @@ interface BlogPost {
 })
 export class BlogDetailComponent {
   private http = inject(HttpClient);
+  private blogService = inject(BlogService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private modalService = inject(NgbModal);
@@ -45,10 +36,10 @@ export class BlogDetailComponent {
 
   loadBlogPost(id: number) {
     this.loading.set(true);
-    this.http.get<BlogPost[]>(`${environment.apiBaseUrl}/blog?id=eq.${id}`).subscribe({
-      next: (data) => {
-        if (data.length > 0) {
-          this.post.set(data[0]);
+    this.blogService.getBlogPost(id).subscribe({
+      next: (post) => {
+        if (post) {
+          this.post.set(post);
         } else {
           console.error('Blog post not found');
           this.router.navigate(['/blog/']);
@@ -68,7 +59,7 @@ export class BlogDetailComponent {
     if (!postId) return;
 
     if (confirm('Are you sure you want to delete this post?')) {
-      this.http.delete(`${environment.apiBaseUrl}/blog?id=eq.${postId}`).subscribe({
+      this.blogService.deleteBlogPost(postId).subscribe({
         next: () => {
           console.log('Blog post deleted');
           this.router.navigate(['/blog/']);

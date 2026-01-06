@@ -1,18 +1,10 @@
 import { DatePipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { environment } from '../../../environments/environment';
 import { AuthService } from '../../services/auth.service';
 import { BlogFormComponent } from './components/blog-form/blog-form';
-
-interface BlogPost {
-  id: number;
-  title: string;
-  created_at: string;
-  body: string;
-}
+import { BlogPost, BlogService } from './blog.service';
 
 @Component({
   selector: 'app-blog',
@@ -21,7 +13,7 @@ interface BlogPost {
   styleUrl: './blog.scss',
 })
 export class BlogComponent {
-  private http = inject(HttpClient);
+  private blogService = inject(BlogService);
   private modalService = inject(NgbModal);
   protected authService = inject(AuthService);
   protected posts = signal<BlogPost[]>([]);
@@ -31,7 +23,7 @@ export class BlogComponent {
   }
 
   loadBlogPosts() {
-    this.http.get<BlogPost[]>(`${environment.apiBaseUrl}/blog?order=created_at.desc`).subscribe({
+    this.blogService.getBlogPosts().subscribe({
       next: (data) => {
         this.posts.set(data);
       },
@@ -43,7 +35,7 @@ export class BlogComponent {
 
   deleteBlogPost(id: number) {
     if (confirm('Are you sure you want to delete this blog post?')) {
-      this.http.delete(`${environment.apiBaseUrl}/blog?id=eq.${id}`).subscribe({
+      this.blogService.deleteBlogPost(id).subscribe({
         next: () => {
           console.log('Blog post deleted');
           this.loadBlogPosts();

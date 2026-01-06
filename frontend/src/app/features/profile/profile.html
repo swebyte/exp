@@ -5,6 +5,13 @@
       <p class="lead">Manage your account information.</p>
     </div>
 
+    @if (loading()) {
+    <div class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    } @else {
     <div class="card">
       <div class="card-body">
         <form (ngSubmit)="saveProfile()" #profileForm="ngForm">
@@ -18,32 +25,17 @@
           </div>
           }
 
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="firstName" class="form-label">First Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="firstName"
-                [(ngModel)]="firstName"
-                [ngModelOptions]="{ updateOn: 'change' }"
-                name="firstName"
-                required
-              />
-            </div>
-
-            <div class="col-md-6 mb-3">
-              <label for="lastName" class="form-label">Last Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="lastName"
-                [(ngModel)]="lastName"
-                [ngModelOptions]="{ updateOn: 'change' }"
-                name="lastName"
-                required
-              />
-            </div>
+          <div class="mb-3">
+            <label for="fullname" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fullname"
+              [(ngModel)]="fullname"
+              [ngModelOptions]="{ updateOn: 'change' }"
+              name="fullname"
+              required
+            />
           </div>
 
           <div class="mb-3">
@@ -67,5 +59,6 @@
         </form>
       </div>
     </div>
+    }
   </div>
 </div>
