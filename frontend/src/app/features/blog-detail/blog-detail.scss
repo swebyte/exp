@@ -14,37 +14,6 @@
       font-size: 1rem;
     }
 
-    .like-button {
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #dc3545;
-      font-size: 1.25rem;
-      transition: transform 0.2s ease;
-
-      &:hover {
-        transform: scale(1.1);
-      }
-
-      &:active {
-        transform: scale(0.95);
-      }
-
-      i {
-        font-size: 1.5rem;
-      }
-
-      .likes-count {
-        font-size: 1rem;
-        font-weight: 500;
-        color: #6c757d;
-      }
-    }
-
     .post-body {
       font-size: 1.125rem;
       line-height: 1.8;

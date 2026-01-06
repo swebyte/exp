@@ -4,9 +4,10 @@ import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownComponent } from 'ngx-markdown';
-import { environment } from '../../environments/environment';
-import { BlogFormComponent } from '../blog-form/blog-form';
-import { AuthService } from '../services/auth.service';
+import { environment } from '../../../environments/environment';
+import { LikeButton } from '../../components/like-button/like-button';
+import { AuthService } from '../../services/auth.service';
+import { BlogFormComponent } from '../blog/components/blog-form/blog-form';
 
 interface BlogPost {
   id: number;
@@ -20,7 +21,7 @@ interface BlogPost {
 
 @Component({
   selector: 'app-blog-detail',
-  imports: [DatePipe, MarkdownComponent],
+  imports: [DatePipe, MarkdownComponent, LikeButton],
   templateUrl: './blog-detail.html',
   styleUrl: './blog-detail.scss',
 })
@@ -32,8 +33,6 @@ export class BlogDetailComponent {
   protected authService = inject(AuthService);
   protected post = signal<BlogPost | null>(null);
   protected loading = signal(true);
-  protected liked = signal(false);
-  protected likesCount = signal(0);
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -49,10 +48,7 @@ export class BlogDetailComponent {
     this.http.get<BlogPost[]>(`${environment.apiBaseUrl}/blog?id=eq.${id}`).subscribe({
       next: (data) => {
         if (data.length > 0) {
-          data[0].author = 'Unknown Author';
           this.post.set(data[0]);
-          this.likesCount.set(data[0].likes || 0);
-          this.loadLikeStatus(id);
         } else {
           console.error('Blog post not found');
           this.router.navigate(['/blog/']);
@@ -107,49 +103,5 @@ export class BlogDetailComponent {
 
   goBack() {
     this.router.navigate(['/blog/']);
-  }
-
-  loadLikeStatus(postId: number) {
-    const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '[]');
-    this.liked.set(likedPosts.includes(postId));
-  }
-
-  toggleLike() {
-    const postId = this.post()?.id;
-    if (!postId) return;
-
-    const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '[]') as number[];
-    const isCurrentlyLiked = this.liked();
-
-    if (isCurrentlyLiked) {
-      // Unlike
-      const index = likedPosts.indexOf(postId);
-      if (index > -1) {
-        likedPosts.splice(index, 1);
-      }
-      this.likesCount.update((count) => Math.max(0, count - 1));
-      this.liked.set(false);
-    } else {
-      // Like
-      likedPosts.push(postId);
-      this.likesCount.update((count) => count + 1);
-      this.liked.set(true);
-    }
-
-    localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
-    this.updateLikesOnServer(postId, this.likesCount());
-  }
-
-  updateLikesOnServer(postId: number, newCount: number) {
-    this.http
-      .patch(`${environment.apiBaseUrl}/blog?id=eq.${postId}`, { likes: newCount })
-      .subscribe({
-        next: () => {
-          console.log('Likes updated on server');
-        },
-        error: (error) => {
-          console.error('Failed to update likes:', error);
-        },
-      });
   }
 }

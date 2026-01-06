@@ -1,0 +1,8 @@
+<button
+  class="like-button"
+  (click)="toggleLike()"
+  title="{{ liked() ? 'Unlike' : 'Like' }} this post"
+>
+  <i class="bi" [class.bi-heart-fill]="liked()" [class.bi-heart]="!liked()"></i>
+  <span class="likes-count">{{ likesCount() }}</span>
+</button>

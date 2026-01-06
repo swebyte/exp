@@ -39,14 +39,7 @@
           @if (post()!.author) { By {{ post()!.author }} • }
           {{ post()!.created_at | date : 'MMMM d, yyyy' }}
         </p>
-        <button
-          class="like-button"
-          (click)="toggleLike()"
-          title="{{ liked() ? 'Unlike' : 'Like' }} this post"
-        >
-          <i class="bi" [class.bi-heart-fill]="liked()" [class.bi-heart]="!liked()"></i>
-          <span class="likes-count">{{ likesCount() }}</span>
-        </button>
+        <app-like-button [postId]="post()!.id" [initialLikesCount]="post()!.likes || 0" />
       </div>
 
       <div class="post-body">
