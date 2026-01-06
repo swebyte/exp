@@ -1,0 +1,49 @@
+@baseUrl = http://localhost:3000
+# @baseUrl = https://blogapi.swebyte.online
+
+### Fetch blog data
+GET {{baseUrl}}/blog
+
+### Fetch blog data with query parameters (e.g., order by created_at descending)
+GET {{baseUrl}}/blog?order=created_at.desc
+### Fetch experience data
+GET {{baseUrl}}/experience
+
+### Login to get JWT token
+# @name login
+POST {{baseUrl}}/rpc/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Set token from login response
+@token = {{login.response.body.token}}
+
+### Fetch a specific row by ID
+GET {{baseUrl}}/blog?id=eq.1
+
+### Fetch blog post id 3 with fullname from user
+ GET {{baseUrl}}/blog?id=eq.1&select=*,users!fk_blog_user(fullname)
+
+### Fetch blog post id 3 with fullname from user
+GET {{baseUrl}}/blog?id=eq.1&select=*,users(fullname)
+
+
+### Fetch blog post id 3 with fullname from user
+GET {{baseUrl}}/blog?select=title,users(fullname)
+
+### Check users table directly
+GET {{baseUrl}}/users?select=id,email,fullname&limit=1
+
+### Insert a new blog post (requires authentication)
+POST {{baseUrl}}/blog
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "My Second Blog Post",
+  "body": "This is the content of my first blog post."
+}

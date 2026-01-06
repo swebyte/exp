@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.postgres
+    container_name: postgres-blogdb
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      AUTHENTICATOR_PASSWORD: ${AUTHENTICATOR_PASSWORD}
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    command: postgres -c 'app.jwt_secret=${JWT_SECRET}'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  postgrest:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: postgrest-container
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      PGRST_DB_URI: postgres://authenticator:${AUTHENTICATOR_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      PGRST_DB_SCHEMA: api
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_JWT_SECRET: ${JWT_SECRET}
+
+volumes:
+  postgres_data:
