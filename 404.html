@@ -4,16 +4,21 @@
   <head>
     <meta charset="utf-8" />
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./" />
     <script type="text/javascript">
-      // If a direct navigation or refresh happens on a client-side route,
-      // this script will redirect to index.html and preserve the path for Angular to handle.
+      // GitHub Pages Angular SPA redirect: preserve path after refresh
       (function () {
         var l = window.location;
-        var path = l.pathname.replace(/\/+/g, '/');
-        if (path !== '/' && !path.endsWith('/index.html')) {
+        var pathname = l.pathname;
+        // Only redirect if not already at index.html
+        if (!pathname.endsWith('/index.html')) {
           var newUrl =
-            l.origin + l.pathname.replace(/\/[^/]*$/, '/') + 'index.html' + l.search + l.hash;
+            l.origin +
+            (pathname.endsWith('/') ? pathname : pathname + '/') +
+            'index.html' +
+            l.search +
+            l.hash;
+          // Use history.replaceState to keep the original path in the address bar
+          window.history.replaceState(null, '', pathname + l.search + l.hash);
           window.location.replace(newUrl);
         }
       })();
