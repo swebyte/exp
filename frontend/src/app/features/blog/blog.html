@@ -23,15 +23,23 @@
               {{ post.created_at | date : 'MMMM d, yyyy' }}
             </p>
           </div>
-          @if (authService.isAuthenticated()) {
-          <button
-            class="btn btn-link text-danger delete-btn"
-            (click)="deleteBlogPost(post.id)"
-            title="Delete post"
-          >
-            <i class="bi bi-trash"></i>
-          </button>
-          }
+          <div class="d-flex flex-column align-items-end" style="gap: 0.5rem">
+            @if(post.likes !== undefined && post.likes > 0) {
+            <app-like-button
+              [postId]="post.id"
+              [initialLikesCount]="post.likes ?? 0"
+              [readonly]="true"
+            ></app-like-button>
+            } @if (authService.isAuthenticated()) {
+            <button
+              class="btn btn-link text-danger delete-btn"
+              (click)="deleteBlogPost(post.id)"
+              title="Delete post"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+            }
+          </div>
         </div>
         <!-- <p class="post-body">{{ post.body }}</p> -->
         <a [routerLink]="['/blog', post.id]" class="read-more">Read More →</a>

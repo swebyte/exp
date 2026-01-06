@@ -1,7 +1,9 @@
 <button
   class="like-button"
+  [class.animated]="!readonly()"
   (click)="toggleLike()"
   title="{{ liked() ? 'Unlike' : 'Like' }} this post"
+  [disabled]="readonly()"
 >
   <i class="bi" [class.bi-heart-fill]="liked()" [class.bi-heart]="!liked()"></i>
   <span class="likes-count">{{ likesCount() }}</span>

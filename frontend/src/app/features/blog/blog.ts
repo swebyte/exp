@@ -2,13 +2,14 @@ import { DatePipe } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LikeButton } from '../../components/like-button/like-button';
 import { AuthService } from '../../services/auth.service';
-import { BlogFormComponent } from './components/blog-form/blog-form';
 import { BlogPost, BlogService } from './blog.service';
+import { BlogFormComponent } from './components/blog-form/blog-form';
 
 @Component({
   selector: 'app-blog',
-  imports: [DatePipe, RouterLink],
+  imports: [DatePipe, RouterLink, LikeButton],
   templateUrl: './blog.html',
   styleUrl: './blog.scss',
 })
