@@ -9,7 +9,7 @@
     "test": "ng test",
     "serve:ssr:frontend": "node dist/frontend/server/server.mjs",
     "serve:prod": "http-server dist/frontend/browser -p 8080 -c-1",
-    "deploy": "ng build -c production && gh-pages -d dist/frontend/browser"
+    "deploy": "ng build --configuration production && gh-pages -d dist/frontend/browser"
   },
   "prettier": {
     "printWidth": 100,
