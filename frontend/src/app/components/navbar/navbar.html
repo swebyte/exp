@@ -24,6 +24,11 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/experience/" routerLinkActive="active"> Experience </a>
         </li>
+        @if (authService.isAuthenticated()) {
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile/" routerLinkActive="active"> Profile </a>
+        </li>
+        }
       </ul>
       @if (authService.isAuthenticated()) {
       <button class="btn btn-secondary btn-sm ms-2 login-btn" (click)="logout()">Logout</button>

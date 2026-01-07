@@ -4,9 +4,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { MarkdownComponent } from 'ngx-markdown';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
-import { ImageUploadComponent } from '../image-upload/image-upload';
-import { AuthService } from '../services/auth.service';
+import { environment } from '../../../../../environments/environment';
+import { ImageUploadComponent } from '../../../../components/image-upload/image-upload';
+import { AuthService } from '../../../../services/auth.service';
 
 interface BlogPostData {
   title: string;

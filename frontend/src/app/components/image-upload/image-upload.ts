@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImageService } from '../services/image.service';
+import { ImageService } from './image.service';
 
 @Component({
   selector: 'app-image-upload',

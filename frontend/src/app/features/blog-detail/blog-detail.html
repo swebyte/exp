@@ -17,23 +17,7 @@
 
     <article class="blog-post">
       <div class="d-flex justify-content-between align-items-start mb-3">
-        <div>
-          <h1 class="post-title">{{ post()!.title }}</h1>
-          <p class="post-date text-muted">
-            @if (post()!.author) { By {{ post()!.author }} • }
-            {{ post()!.created_at | date : 'MMMM d, yyyy' }}
-          </p>
-          <button
-            class="btn btn-sm border-0"
-            [class.btn-primary]="liked()"
-            [class.btn-outline-primary]="!liked()"
-            (click)="toggleLike()"
-            title="{{ liked() ? 'Unlike' : 'Like' }} this post"
-          >
-            <i class="bi" [class.bi-heart-fill]="liked()" [class.bi-heart]="!liked()"></i>
-            {{ likesCount() }}
-          </button>
-        </div>
+        <h1 class="post-title">{{ post()!.title }}</h1>
         @if (authService.isAuthenticated()) {
         <div class="d-flex gap-1">
           <button class="btn btn-link text-primary" (click)="openEditBlogModal()" title="Edit post">
@@ -48,6 +32,14 @@
           </button>
         </div>
         }
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <p class="post-date text-muted mb-0">
+          @if (post()!.author) { By {{ post()!.author }} • }
+          {{ post()!.created_at | date : 'MMMM d, yyyy' }}
+        </p>
+        <app-like-button [postId]="post()!.id" [initialLikesCount]="post()!.likes || 0" />
       </div>
 
       <div class="post-body">

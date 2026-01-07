@@ -1,0 +1,71 @@
+<div class="container mt-4">
+  <div class="profile-container">
+    <div class="mb-4">
+      <h1>Profile</h1>
+      <p class="lead">Manage your account information.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <form (ngSubmit)="saveProfile()" #profileForm="ngForm">
+          @if (successMessage()) {
+          <div class="alert alert-success" role="alert">
+            <i class="bi bi-check-circle-fill pe-2"></i>{{ successMessage() }}
+          </div>
+          } @if (errorMessage()) {
+          <div class="alert alert-danger" role="alert">
+            <i class="bi bi-exclamation-triangle-fill pe-2"></i>{{ errorMessage() }}
+          </div>
+          }
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                [(ngModel)]="firstName"
+                [ngModelOptions]="{ updateOn: 'change' }"
+                name="firstName"
+                required
+              />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                [(ngModel)]="lastName"
+                [ngModelOptions]="{ updateOn: 'change' }"
+                name="lastName"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              [(ngModel)]="email"
+              [ngModelOptions]="{ updateOn: 'change' }"
+              name="email"
+              required
+            />
+          </div>
+
+          <div class="d-flex justify-content-end gap-2">
+            <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid">
+              <i class="bi bi-save pe-1"></i> Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

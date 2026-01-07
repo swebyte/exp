@@ -2,9 +2,9 @@ import { Component, inject, signal } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownComponent } from 'ngx-markdown';
-import { AuthService } from '../services/auth.service';
-import { ExperienceFormComponent } from '../experience-form/experience-form';
-import { environment } from '../../environments/environment';
+import { AuthService } from '../../services/auth.service';
+import { ExperienceFormComponent } from './components/experience-form/experience-form';
+import { environment } from '../../../environments/environment';
 
 interface Experience {
   id: number;
