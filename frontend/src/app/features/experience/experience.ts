@@ -1,10 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClient } from '@angular/common/http';
 import { MarkdownComponent } from 'ngx-markdown';
 import { AuthService } from '../../services/auth.service';
 import { ExperienceFormComponent } from './components/experience-form/experience-form';
-import { environment } from '../../../environments/environment';
+import { ExperienceService } from './experience.service';
 
 interface Experience {
   id: number;
@@ -26,32 +25,20 @@ interface Experience {
 export class ExperienceComponent {
   protected authService = inject(AuthService);
   private modalService = inject(NgbModal);
-  private http = inject(HttpClient);
-  protected experiences = signal<Experience[]>([]);
+  private experienceService = inject(ExperienceService);
+  protected experiences = this.experienceService.experiences;
+  protected numYearsInBusiness = this.experienceService.numYearsInBussiness;
 
   ngOnInit() {
-    this.loadExperiences();
-  }
-
-  loadExperiences() {
-    this.http
-      .get<Experience[]>(`${environment.apiBaseUrl}/experience?order=start_date.desc`)
-      .subscribe({
-        next: (data) => {
-          this.experiences.set(data);
-        },
-        error: (error) => {
-          console.error('Failed to load experiences:', error);
-        },
-      });
+    this.experienceService.loadExperiences();
   }
 
   deleteExperience(id: number) {
     if (confirm('Are you sure you want to delete this experience?')) {
-      this.http.delete(`${environment.apiBaseUrl}/experience?id=eq.${id}`).subscribe({
+      this.experienceService.deleteExperience(id).subscribe({
         next: () => {
           console.log('Experience deleted');
-          this.loadExperiences();
+          this.experienceService.loadExperiences();
         },
         error: (error) => {
           console.error('Failed to delete experience:', error);
@@ -69,7 +56,7 @@ export class ExperienceComponent {
     modalRef.result.then(
       (result) => {
         console.log('Experience created:', result);
-        this.loadExperiences();
+        this.experienceService.loadExperiences();
       },
       (reason) => {
         console.log('Modal dismissed');
@@ -87,7 +74,7 @@ export class ExperienceComponent {
     modalRef.result.then(
       (result) => {
         console.log('Experience updated:', result);
-        this.loadExperiences();
+        this.experienceService.loadExperiences();
       },
       (reason) => {
         console.log('Modal dismissed');

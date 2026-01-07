@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
       <div>
         <h1>Experience</h1>
-        <p class="lead">My professional journey and life history.</p>
+        <h5>{{ numYearsInBusiness() }} years in the business</h5>
       </div>
       @if (authService.isAuthenticated()) {
       <button class="btn btn-primary" (click)="openNewExperienceModal()">

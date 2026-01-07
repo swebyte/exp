@@ -27,7 +27,7 @@
             @if(post.likes !== undefined && post.likes > 0) {
             <app-like-button
               [postId]="post.id"
-              [count]="post.likes ?? 0"
+              [count]="post.likes"
               [readonly]="true"
             ></app-like-button>
             } @if (authService.isAuthenticated()) {
