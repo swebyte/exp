@@ -1,0 +1,45 @@
+### Health check
+GET http://localhost:3001/health
+
+### Get database schema
+GET http://localhost:3001/api/schema
+
+### Execute custom query
+POST http://localhost:3001/api/query
+Content-Type: application/json
+
+{
+  "query": "SELECT * FROM api.blog LIMIT 5"
+}
+
+### List blog posts
+GET http://localhost:3001/api/blog?limit=5
+
+### Get single blog post
+GET http://localhost:3001/api/blog/1
+
+### List experience entries
+GET http://localhost:3001/api/experience?limit=5
+
+### Get single experience entry
+GET http://localhost:3001/api/experience/1
+
+### List users
+GET http://localhost:3001/api/users
+
+### AI Chat endpoint
+POST http://localhost:3001/api/ai/chat
+Content-Type: application/json
+
+{
+  "question": "What tables are in the database?",
+  "includeSchema": true
+}
+
+### AI-enhanced data query
+POST http://localhost:3001/api/ai/query-data
+Content-Type: application/json
+
+{
+  "question": "Show the latest blog posts."
+}

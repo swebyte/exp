@@ -1,0 +1,9 @@
+# Base Ollama image
+FROM ollama/ollama:latest
+
+# Copy entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Use entrypoint script
+ENTRYPOINT ["/entrypoint.sh"]
