@@ -47,3 +47,15 @@ Authorization: Bearer {{token}}
   "title": "My Second Blog Post",
   "body": "This is the content of my first blog post."
 }
+
+### Increment likes for a blog post using the new endpoint
+POST {{baseUrl}}/rpc/inc_blog_likes
+Content-Type: application/json
+
+{ "blog_id": 1 }
+
+### decrement likes for a blog post using the new endpoint
+POST {{baseUrl}}/rpc/dec_blog_likes
+Content-Type: application/json
+
+{ "blog_id": 1 }

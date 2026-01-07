@@ -1,10 +1,10 @@
 import { DatePipe } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LikeButton } from '../../components/like-button/like-button';
 import { AuthService } from '../../services/auth.service';
-import { BlogPost, BlogService } from './blog.service';
+import { BlogService } from './blog.service';
 import { BlogFormComponent } from './components/blog-form/blog-form';
 
 @Component({
@@ -17,21 +17,10 @@ export class BlogComponent {
   private blogService = inject(BlogService);
   private modalService = inject(NgbModal);
   protected authService = inject(AuthService);
-  protected posts = signal<BlogPost[]>([]);
+  protected posts = this.blogService.posts;
 
   ngOnInit() {
-    this.loadBlogPosts();
-  }
-
-  loadBlogPosts() {
-    this.blogService.getBlogPosts().subscribe({
-      next: (data) => {
-        this.posts.set(data);
-      },
-      error: (error) => {
-        console.error('Failed to load blog posts:', error);
-      },
-    });
+    this.blogService.loadBlogPosts();
   }
 
   deleteBlogPost(id: number) {
@@ -39,7 +28,7 @@ export class BlogComponent {
       this.blogService.deleteBlogPost(id).subscribe({
         next: () => {
           console.log('Blog post deleted');
-          this.loadBlogPosts();
+          this.blogService.loadBlogPosts();
         },
         error: (error) => {
           console.error('Failed to delete blog post:', error);
@@ -57,7 +46,7 @@ export class BlogComponent {
     modalRef.result.then(
       (result) => {
         console.log('Blog post created:', result);
-        this.loadBlogPosts();
+        this.blogService.loadBlogPosts();
       },
       (reason) => {
         console.log('Modal dismissed');

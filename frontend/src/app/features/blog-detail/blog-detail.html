@@ -39,7 +39,7 @@
           @if (post()!.author) { By {{ post()!.author }} • }
           {{ post()!.created_at | date : 'MMMM d, yyyy' }}
         </p>
-        <app-like-button [postId]="post()!.id" [initialLikesCount]="post()!.likes || 0" />
+        <app-like-button [postId]="post()!.id" [count]="post()!.likes || 0" />
       </div>
 
       <div class="post-body">

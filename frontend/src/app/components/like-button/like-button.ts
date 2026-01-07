@@ -11,14 +11,12 @@ export class LikeButton {
   private likesService = inject(LikesService);
 
   postId = input.required<number>();
-  initialLikesCount = input.required<number>();
+  count = input.required<number>();
   readonly = input<boolean>(false);
 
   protected liked = signal(false);
-  protected likesCount = signal(0);
 
   ngOnInit() {
-    this.likesCount.set(this.initialLikesCount());
     this.liked.set(this.likesService.isPostLiked(this.postId()));
   }
 
@@ -26,8 +24,7 @@ export class LikeButton {
     if (this.readonly()) {
       return;
     }
-    const result = this.likesService.toggleLike(this.postId(), this.likesCount());
+    const result = this.likesService.toggleLike(this.postId());
     this.liked.set(result.liked);
-    this.likesCount.set(result.newCount);
   }
 }

@@ -1,13 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { environment } from '../../../environments/environment';
+import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
+import { BlogService } from '../../features/blog/blog.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LikesService {
-  private http = inject(HttpClient);
+  private blogService = inject(BlogService);
   private platformId = inject(PLATFORM_ID);
   private likedPostsStore = signal<Set<number>>(new Set());
 
@@ -36,37 +35,36 @@ export class LikesService {
     return this.likedPostsStore().has(postId);
   }
 
-  toggleLike(postId: number, currentCount: number): { liked: boolean; newCount: number } {
+  toggleLike(postId: number): { liked: boolean } {
     const likedPosts = new Set(this.likedPostsStore());
     const isCurrentlyLiked = likedPosts.has(postId);
 
-    let newCount: number;
-
     if (isCurrentlyLiked) {
       likedPosts.delete(postId);
-      newCount = Math.max(0, currentCount - 1);
-    } else {
-      likedPosts.add(postId);
-      newCount = currentCount + 1;
-    }
-
-    this.likedPostsStore.set(likedPosts);
-    this.saveLikedPostsToStorage();
-    this.updateLikesOnServer(postId, newCount);
-
-    return { liked: !isCurrentlyLiked, newCount };
-  }
-
-  private updateLikesOnServer(postId: number, newCount: number) {
-    this.http
-      .patch(`${environment.apiBaseUrl}/blog?id=eq.${postId}`, { likes: newCount })
-      .subscribe({
-        next: () => {
-          console.log('Likes updated on server');
+      this.likedPostsStore.set(likedPosts);
+      this.saveLikedPostsToStorage();
+      this.blogService.decrementBlogLikes(postId).subscribe({
+        next: (likes) => {
+          console.log('Likes decremented on server, new count:', likes);
         },
         error: (error) => {
-          console.error('Failed to update likes:', error);
+          console.error('Failed to decrement likes:', error);
         },
       });
+      return { liked: false };
+    } else {
+      likedPosts.add(postId);
+      this.likedPostsStore.set(likedPosts);
+      this.saveLikedPostsToStorage();
+      this.blogService.incrementBlogLikes(postId).subscribe({
+        next: (likes) => {
+          console.log('Likes incremented on server, new count:', likes);
+        },
+        error: (error) => {
+          console.error('Failed to increment likes:', error);
+        },
+      });
+      return { liked: true };
+    }
   }
 }
