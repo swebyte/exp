@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:3000',
-  // apiBaseUrl: 'https://blogapi.swebyte.online',
+  // apiBaseUrl: 'https://api.swevin.se',
 };

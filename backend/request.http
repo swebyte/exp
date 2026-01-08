@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000
-# @baseUrl = https://blogapi.swebyte.online
+# @baseUrl = https://api.swevin.se
 
 ### Fetch blog data
 GET {{baseUrl}}/blog
