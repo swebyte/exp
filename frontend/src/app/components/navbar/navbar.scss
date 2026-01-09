@@ -55,3 +55,63 @@
     padding: 0.35rem 0.55rem;
   }
 }
+
+/* Animated hamburger (Bootstrap) and remove grey highlight */
+.navbar-toggler {
+  background: transparent !important;
+  border: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* hide default icon if present */
+.navbar-toggler .navbar-toggler-icon {
+  display: none !important;
+}
+
+.hamburger {
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  position: relative;
+}
+
+.hamburger span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  display: block;
+  transition: transform 250ms ease, top 250ms ease, opacity 200ms ease;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+.hamburger span:nth-child(2) {
+  top: 8px;
+}
+.hamburger span:nth-child(3) {
+  top: 16px;
+}
+
+.hamburger.open span:nth-child(1) {
+  top: 8px;
+  transform: rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.hamburger.open span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-45deg);
+}

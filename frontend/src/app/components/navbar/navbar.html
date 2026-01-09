@@ -7,11 +7,16 @@
       class="navbar-toggler"
       type="button"
       (click)="isMenuCollapsed = !isMenuCollapsed"
+      [class.collapsed]="isMenuCollapsed"
       [attr.aria-expanded]="!isMenuCollapsed"
       aria-controls="navbarNav"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span class="hamburger" [class.open]="!isMenuCollapsed" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="isMenuCollapsed">
       <ul class="navbar-nav ms-auto">
