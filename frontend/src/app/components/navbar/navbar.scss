@@ -1,0 +1,57 @@
+/* Navbar responsive sizing for mobile views (adjusted larger) */
+
+@media (max-width: 991.98px) {
+  .navbar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  //   .navbar .container {
+  //     padding-left: 1rem;
+  //     padding-right: 1rem;
+  //   }
+
+  .navbar-brand {
+    font-size: 1.15rem;
+    padding: 0;
+  }
+
+  .navbar-toggler {
+    padding: 0.4rem 0.6rem;
+  }
+
+  //   .navbar-nav .nav-link {
+  //     padding: 0.45rem 0.6rem;
+  //     font-size: 1rem;
+  //   }
+
+  .login-btn {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar {
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+  }
+
+  //   .navbar .container {
+  //     padding-left: 0.75rem;
+  //     padding-right: 0.75rem;
+  //   }
+
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  //   .navbar-nav .nav-link {
+  //     padding: 0.35rem 0.5rem;
+  //     font-size: 0.98rem;
+  //   }
+
+  .navbar-toggler {
+    padding: 0.35rem 0.55rem;
+  }
+}
