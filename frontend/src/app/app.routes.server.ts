@@ -21,8 +21,4 @@ export const serverRoutes: ServerRoute[] = [
     path: 'profile',
     renderMode: RenderMode.Prerender,
   },
-  {
-    path: 'about',
-    renderMode: RenderMode.Prerender,
-  },
 ];

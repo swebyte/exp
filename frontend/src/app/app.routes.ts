@@ -27,9 +27,4 @@ export const routes: Routes = [
     loadComponent: () => import('./features/profile/profile').then((m) => m.ProfileComponent),
   },
   { path: 'profile/', redirectTo: 'profile', pathMatch: 'full' },
-  {
-    path: 'about',
-    loadComponent: () => import('./features/about/about').then((m) => m.AboutComponent),
-  },
-  { path: 'about/', redirectTo: 'about', pathMatch: 'full' },
 ];
