@@ -1,9 +1,0 @@
-.app-scrollbar {
-  display: block;
-  height: calc(100vh - 60px); /* adjust to account for header/footer height */
-}
-
-/* Ensure routed content fills the scrollbar container */
-.app-scrollbar > * {
-  height: 100%;
-}

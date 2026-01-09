@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar';
-import { NgScrollbarModule } from 'ngx-scrollbar';
+// ngx-scrollbar removed — using native scroll container
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, NgScrollbarModule],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
