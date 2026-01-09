@@ -1,7 +1,5 @@
 .about-container {
   .row {
-    // min-height: clamp(300px, calc(100vh - 92px), 1024px);
-    // height: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -10,8 +8,8 @@
       height: 100%;
     }
   }
-  max-width: 1600px;
-  margin: 0 auto;
+
+  width: 100%;
 
   .profile-image-container {
     height: 100%;
@@ -76,13 +74,6 @@
       color: #495057;
       font-weight: 600;
       margin-bottom: 1rem;
-    }
-  }
-
-  .skills-list {
-    .badge {
-      font-size: 0.9rem;
-      padding: 0.5rem 0.75rem;
     }
   }
 
