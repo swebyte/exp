@@ -29,7 +29,8 @@
       .timeline-badge {
         position: absolute;
         left: -2rem;
-        top: 0.9rem;
+        top: 50%;
+        transform: translateY(-50%);
         width: 20px;
         height: 20px;
         border-radius: 50%;
@@ -63,6 +64,49 @@
         ul {
           margin-bottom: 0;
         }
+      }
+
+      /* life-event-card styles moved to component SCSS */
+
+      /* Pointer for regular experience cards */
+      .card:not(.life-event-card) {
+        position: relative;
+        overflow: visible;
+        margin-left: 1.6rem; /* slightly less nudge than life-event */
+
+        &::before {
+          /* outer border triangle */
+          content: '';
+          position: absolute;
+          left: -30px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 0;
+          height: 0;
+          border-top: 12px solid transparent;
+          border-bottom: 12px solid transparent;
+          border-right: 12px solid #e9ecef; /* subtle outer border */
+          z-index: 1;
+        }
+
+        &::after {
+          /* inner background triangle */
+          content: '';
+          position: absolute;
+          left: -26px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 0;
+          height: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-right: 10px solid #ffffff; /* card background */
+          z-index: 2;
+        }
+      }
+
+      .timeline-badge {
+        z-index: 4;
       }
     }
   }

@@ -1,9 +1,11 @@
+import { DatePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownComponent } from 'ngx-markdown';
 import { AuthService } from '../../services/auth.service';
+import { ExperienceCardComponent } from './components/experience-card/experience-card';
 import { ExperienceFormComponent } from './components/experience-form/experience-form';
-import { ExperienceService } from './experience.service';
+import { ExpericeType_LifeEvent, ExperienceService } from './experience.service';
 
 interface Experience {
   id: number;
@@ -18,7 +20,7 @@ interface Experience {
 
 @Component({
   selector: 'app-experience',
-  imports: [MarkdownComponent],
+  imports: [MarkdownComponent, DatePipe, ExperienceCardComponent],
   templateUrl: './experience.html',
   styleUrl: './experience.scss',
 })
@@ -27,6 +29,7 @@ export class ExperienceComponent {
   private modalService = inject(NgbModal);
   private experienceService = inject(ExperienceService);
   protected experiences = this.experienceService.experiences;
+  protected ExpericeType_LifeEvent = ExpericeType_LifeEvent;
   protected numYearsInBusiness = this.experienceService.numYearsInBussiness;
 
   ngOnInit() {

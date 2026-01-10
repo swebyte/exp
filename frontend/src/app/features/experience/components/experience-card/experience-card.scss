@@ -1,0 +1,101 @@
+.card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* life-event and normal card pointer styling moved here */
+.life-event-card {
+  background: linear-gradient(180deg, #f8f9fa, #e9ecef);
+  border: 1px solid rgba(108, 117, 125, 0.12);
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .event-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #6c757d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  }
+
+  h5,
+  p {
+    color: #495057;
+  }
+
+  position: relative;
+  overflow: visible;
+  margin-left: 1.6rem; /* match regular card spacing */
+
+  &::before {
+    /* outer subtle border like regular cards */
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 12px solid #e9ecef; /* subtle outer border */
+    z-index: 1;
+  }
+
+  &::after {
+    /* inner background triangle matching card background */
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ffffff; /* life-event card background */
+    z-index: 2;
+  }
+}
+
+/* Pointer for regular experience cards */
+.card:not(.life-event-card) {
+  position: relative;
+  overflow: visible;
+  margin-left: 1.6rem; /* slightly less nudge than life-event */
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 12px solid #e9ecef; /* subtle outer border */
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ffffff; /* card background */
+    z-index: 2;
+  }
+}

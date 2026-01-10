@@ -10,9 +10,13 @@ export interface Experience {
   description: string;
   start_date: string;
   end_date: string | null;
+  type?: string;
   created_at: string;
   user_id: string;
 }
+
+export const ExpericeType_Default = 'Default';
+export const ExpericeType_LifeEvent = 'LifeEvent';
 
 @Injectable({
   providedIn: 'root',
@@ -39,7 +43,21 @@ export class ExperienceService {
       .get<Experience[]>(`${environment.apiBaseUrl}/experience?order=start_date.desc`)
       .pipe(map((data) => data || []))
       .subscribe({
-        next: (data) => this._experiences.set(data),
+        next: (data) =>
+          this._experiences.set([
+            ...data,
+            {
+              id: 0,
+              title: 'I was born.',
+              company: '',
+              description: '',
+              start_date: '1994-01-01T00:00:00.000Z',
+              end_date: null,
+              created_at: new Date().toISOString(),
+              user_id: '',
+              type: ExpericeType_LifeEvent,
+            },
+          ]),
         error: (err) => {
           console.error('Failed to load experiences:', err);
           this._experiences.set([]);

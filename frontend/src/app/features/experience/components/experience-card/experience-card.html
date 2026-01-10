@@ -1,0 +1,33 @@
+<ng-container *ngIf="isLifeEvent; else normal">
+  <div class="card life-event-card text-center">
+    <div class="card-body d-flex flex-column align-items-center">
+      <div class="event-circle">{{ experience.start_date | date : 'yyyy' }}</div>
+      <h5 class="mt-2 mb-1">{{ experience.title }}</h5>
+      <p class="small text-muted mb-0" *ngIf="experience.description">
+        {{ experience.description }}
+      </p>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #normal>
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-start">
+        <div class="flex-grow-1">
+          <h5 class="card-title">{{ experience.title }}</h5>
+          <p class="text-muted">
+            {{ experience.company }} • {{ experience.start_date | date : 'yyyy'
+            }}{{ experience.end_date ? ' - ' + (experience.end_date | date : 'yyyy') : '' }}
+          </p>
+        </div>
+        <div class="d-flex gap-1">
+          <ng-content select=".controls"></ng-content>
+        </div>
+      </div>
+      <div class="card-text">
+        <markdown [data]="experience.description"></markdown>
+      </div>
+    </div>
+  </div>
+</ng-template>
