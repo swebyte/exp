@@ -2,5 +2,10 @@
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIiA6ICJhdXRoZW50aWNhdGVkIiwgInVzZXJfaWQiIDogMSwgImVtYWlsIiA6ICJhZG1pbiIsICJleHAiIDogMTc2ODI3NzczMn0.ZB_CbEnxfwmpHp4jNPsy4mJn2dnYBM_W4UvfgBC5yMY
 
 ### Call /ask endpoint (requires authentication)
-GET {{baseUrl}}/ask
+POST {{baseUrl}}/ask
 Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "message": "Fix this text: Hello from cliedt"
+}
