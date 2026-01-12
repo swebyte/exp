@@ -1,4 +1,31 @@
 .env
 secret.key
-create-admin.sh
-create-admin.cmd
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker
+.dockerignore

@@ -46,17 +46,17 @@ export class ExperienceService {
         next: (data) =>
           this._experiences.set([
             ...data,
-            {
-              id: 0,
-              title: 'I was born.',
-              company: '',
-              description: '',
-              start_date: '1994-01-01T00:00:00.000Z',
-              end_date: null,
-              created_at: new Date().toISOString(),
-              user_id: '',
-              type: ExpericeType_LifeEvent,
-            },
+            // {
+            //   id: 0,
+            //   title: 'I was born.',
+            //   company: '',
+            //   description: '',
+            //   start_date: '1994-01-01T00:00:00.000Z',
+            //   end_date: null,
+            //   created_at: new Date().toISOString(),
+            //   user_id: '',
+            //   type: ExpericeType_LifeEvent,
+            // },
           ]),
         error: (err) => {
           console.error('Failed to load experiences:', err);
