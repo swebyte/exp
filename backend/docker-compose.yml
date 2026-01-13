@@ -13,7 +13,7 @@ services:
       AUTHENTICATOR_PASSWORD: ${AUTHENTICATOR_PASSWORD}
     volumes:
       - ./database:/docker-entrypoint-initdb.d
-      - postgres_data:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     command: postgres -c 'app.jwt_secret=${JWT_SECRET}'
