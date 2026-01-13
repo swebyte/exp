@@ -9,3 +9,7 @@ Content-Type: application/json
 {
   "message": "Fix this text: Hello from cliedt"
 }
+
+### Ping the server
+
+GET {{baseUrl}}/ping

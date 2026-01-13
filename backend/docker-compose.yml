@@ -48,7 +48,7 @@ services:
       postgres:
         condition: service_healthy
     ports:
-      - "5000:80"
+      - "5000:8080"
     environment:
       JWT_SECRET: ${JWT_SECRET}
       N8N_WEBHOOK_URL: ${N8N_WEBHOOK_URL}

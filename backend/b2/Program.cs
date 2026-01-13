@@ -43,6 +43,8 @@ var app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGet("/ping", () => Results.Ok("pong"));
+
 app.MapPost("/ask", async (AskRequest request, HttpContext http, IHttpClientFactory httpClientFactory) =>
 {
     try
