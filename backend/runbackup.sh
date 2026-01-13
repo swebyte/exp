@@ -1,1 +1,0 @@
-sudo docker exec -i postgres-blogdb psql -U postgres -d blogdb < data_backup.sql
