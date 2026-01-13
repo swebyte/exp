@@ -17,22 +17,22 @@
       <div class="timeline-item">
         <div class="timeline-badge"></div>
         <experience-card [experience]="exp" [isLifeEvent]="exp.type === ExpericeType_LifeEvent">
-          <div class="controls" *ngIf="authService.isAuthenticated()">
-            <button
-              class="btn btn-link text-primary"
-              (click)="openEditExperienceModal(exp)"
-              title="Edit experience"
-            >
-              <i class="bi bi-pencil"></i>
-            </button>
-            <button
-              class="btn btn-link text-danger delete-btn"
-              (click)="deleteExperience(exp.id)"
-              title="Delete experience"
-            >
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
+          @if (authService.isAuthenticated()) {
+          <button
+            class="btn btn-link text-primary"
+            (click)="openEditExperienceModal(exp)"
+            title="Edit experience"
+          >
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button
+            class="btn btn-link text-danger delete-btn"
+            (click)="deleteExperience(exp.id)"
+            title="Delete experience"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+          }
         </experience-card>
       </div>
       }

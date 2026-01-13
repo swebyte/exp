@@ -6,6 +6,9 @@
       <p class="small text-muted mb-0" *ngIf="experience.description">
         {{ experience.description }}
       </p>
+      <div class="d-flex gap-1 mt-2">
+        <ng-content></ng-content>
+      </div>
     </div>
   </div>
 </ng-container>
@@ -22,9 +25,10 @@
           </p>
         </div>
         <div class="d-flex gap-1">
-          <ng-content select=".controls"></ng-content>
+          <ng-content></ng-content>
         </div>
       </div>
+
       <div class="card-text">
         <markdown [data]="experience.description"></markdown>
       </div>
