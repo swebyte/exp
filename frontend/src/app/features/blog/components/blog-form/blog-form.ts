@@ -1,4 +1,4 @@
-import { Component, inject, Input, PLATFORM_ID } from '@angular/core';
+import { Component, inject, Input, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -38,7 +38,7 @@ export class BlogFormComponent {
   @Input() blogPost?: BlogPost;
 
   title = '';
-  body = '';
+  body: WritableSignal<string> = signal('');
   errorMessage = '';
   showPreview = false;
   aiLoading = false;
@@ -50,30 +50,31 @@ export class BlogFormComponent {
   ngOnInit() {
     if (this.blogPost) {
       this.title = this.blogPost.title;
-      this.body = this.blogPost.body;
+      this.body.set(this.blogPost.body);
     }
   }
 
   onImageUploaded(imageUrl: string) {
     // Insert HTML img tag with editable width attribute
     const html = `\n<img src="${imageUrl}" alt="Image" width="600">\n`;
-    this.body = this.body + html;
+    this.body.update((b) => b + html);
   }
 
   onAIGenerate() {
     this.errorMessage = '';
-    const prompt = `Make my blog post better and correct grammar:\n\n${this.body}\n\n`;
+    const prompt = `Make my blog post better and correct grammar. Only return actaul changed text.:\n\n${this.body()}\n\n`;
     this.aiLoading = true;
+
     this.blogService
       .generateAI(prompt)
       .pipe(finalize(() => (this.aiLoading = false)))
       .subscribe((generated) => {
-        if (generated) {
-          // Append generated content after a separator
-          this.body = this.body + '\n\n' + generated;
-        } else {
+        if (generated === null) {
           this.errorMessage = 'AI generation failed. Please try again.';
+          return;
         }
+        console.log(generated);
+        this.body.update((b) => generated);
       });
   }
 
@@ -86,7 +87,7 @@ export class BlogFormComponent {
 
     const blogData: BlogPostData = {
       title: this.title,
-      body: this.body,
+      body: this.body(),
     };
 
     if (this.isEditMode && this.blogPost) {
