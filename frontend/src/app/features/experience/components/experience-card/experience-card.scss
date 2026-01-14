@@ -33,69 +33,76 @@
   position: relative;
   overflow: visible;
   margin-left: 1.6rem; /* match regular card spacing */
-
-  &::before {
-    /* outer subtle border like regular cards */
-    content: '';
-    position: absolute;
-    left: -30px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    border-right: 12px solid #e9ecef; /* subtle outer border */
-    z-index: 1;
-  }
-
-  &::after {
-    /* inner background triangle matching card background */
-    content: '';
-    position: absolute;
-    left: -26px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid #ffffff; /* life-event card background */
-    z-index: 2;
-  }
 }
 
-/* Pointer for regular experience cards */
-.card:not(.life-event-card) {
-  position: relative;
-  overflow: visible;
-  margin-left: 1.6rem; /* slightly less nudge than life-event */
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: -30px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    border-right: 12px solid #e9ecef; /* subtle outer border */
-    z-index: 1;
+/* Show the left pointer triangles only on desktop */
+@media (min-width: 1024px) {
+  /* Pointer for regular experience cards */
+  .card:not(.life-event-card) {
+    position: relative;
+    overflow: visible;
+    margin-left: 1.6rem; /* slightly less nudge than life-event */
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: -26px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid #ffffff; /* card background */
-    z-index: 2;
+  .life-event-card {
+    &::before {
+      /* outer subtle border like regular cards */
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-right: 12px solid #e9ecef; /* subtle outer border */
+      z-index: 1;
+    }
+
+    &::after {
+      /* inner background triangle matching card background */
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid #ffffff; /* life-event card background */
+      z-index: 2;
+    }
+  }
+
+  .card:not(.life-event-card) {
+    &::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-right: 12px solid #e9ecef; /* subtle outer border */
+      z-index: 1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid #ffffff; /* card background */
+      z-index: 2;
+    }
   }
 }

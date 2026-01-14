@@ -1,7 +1,7 @@
 
 @baseUrl = http://localhost:5000
 # @baseUrl = https://api.swevin.se/b2
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIiA6ICJhdXRoZW50aWNhdGVkIiwgInVzZXJfaWQiIDogMSwgImVtYWlsIiA6ICJhZG1pbiIsICJleHAiIDogMTc2ODQwMjk0Mn0.ypDsdMYfrv_C08viIMgP-tht1PnmbQocJdiT3-8yQxo
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIiA6ICJhdXRoZW50aWNhdGVkIiwgInVzZXJfaWQiIDogMSwgImVtYWlsIiA6ICJhZG1pbiIsICJleHAiIDogMTc2ODQ0ODk1N30.0sMl9bIf3DOI-7sdjJ0ERr-qpPvesLSDCbhjvRH3EA4
 
 ### Call /ask endpoint (requires authentication)
 POST {{baseUrl}}/ask
