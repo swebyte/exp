@@ -80,7 +80,22 @@ app.MapPost("/ask", async (AskRequest request, HttpContext http, IHttpClientFact
         }
         else
         {
-            return Results.BadRequest($"n8n returned {response.StatusCode}");
+            // Capture more details for debugging: status, reason, and response body
+            var status = (int)response.StatusCode;
+            var reason = response.ReasonPhrase;
+            string body = null;
+            try
+            {
+                body = await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception readEx)
+            {
+                body = $"<failed to read body: {readEx.Message}>";
+            }
+
+            var message = $"n8n returned {status} {reason}. Response body: {body}";
+            Console.WriteLine(message);
+            return Results.BadRequest(message);
         }
     }
     catch (Exception ex)
