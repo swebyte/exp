@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
 import { ImageUploadComponent } from '../../../../components/image-upload/image-upload';
 import { AuthService } from '../../../../services/auth.service';
+import { BlogService } from '../../blog.service';
+import { finalize } from 'rxjs/operators';
 
 interface BlogPostData {
   title: string;
@@ -31,6 +33,7 @@ export class BlogFormComponent {
   isBrowser = isPlatformBrowser(this.platformId);
   private http = inject(HttpClient);
   private authService = inject(AuthService);
+  private blogService = inject(BlogService);
 
   @Input() blogPost?: BlogPost;
 
@@ -38,6 +41,7 @@ export class BlogFormComponent {
   body = '';
   errorMessage = '';
   showPreview = false;
+  aiLoading = false;
 
   get isEditMode(): boolean {
     return !!this.blogPost;
@@ -54,6 +58,23 @@ export class BlogFormComponent {
     // Insert HTML img tag with editable width attribute
     const html = `\n<img src="${imageUrl}" alt="Image" width="600">\n`;
     this.body = this.body + html;
+  }
+
+  onAIGenerate() {
+    this.errorMessage = '';
+    const prompt = `Make my blog post better and correct grammar:\n\n${this.body}\n\n`;
+    this.aiLoading = true;
+    this.blogService
+      .generateAI(prompt)
+      .pipe(finalize(() => (this.aiLoading = false)))
+      .subscribe((generated) => {
+        if (generated) {
+          // Append generated content after a separator
+          this.body = this.body + '\n\n' + generated;
+        } else {
+          this.errorMessage = 'AI generation failed. Please try again.';
+        }
+      });
   }
 
   onSubmit() {

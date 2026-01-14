@@ -46,6 +46,23 @@
         >
           Preview
         </button>
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-secondary"
+          title="Generate content with AI"
+          (click)="onAIGenerate()"
+          aria-label="Generate content with AI"
+          [disabled]="aiLoading"
+          [attr.aria-busy]="aiLoading"
+        >
+          <span
+            class="spinner-border spinner-border-sm me-1"
+            role="status"
+            aria-hidden="true"
+            [hidden]="!aiLoading"
+          ></span>
+          AI
+        </button>
       </div>
       @if (!showPreview) {
       <textarea

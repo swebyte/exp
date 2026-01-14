@@ -8,7 +8,7 @@ using B2;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-DotNetEnv.Env.Load("../.env");
+DotNetEnv.Env.Load(".env");
 
 var builder = WebApplication.CreateBuilder(args);
 

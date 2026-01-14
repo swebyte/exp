@@ -124,4 +124,20 @@ export class BlogService {
         })
       );
   }
+
+  /**
+   * Send the blog body to an AI-generation endpoint and return generated text (or null on error)
+   */
+  generateAI(body: string) {
+    if (!body) return of(null);
+    return this.http
+      .post<{ result?: string }>(`${environment.apiBaseUrl}/b2/ask`, { Message: body })
+      .pipe(
+        map((res) => (res && res.result ? res.result : null)),
+        catchError((err) => {
+          console.error('AI generation failed:', err);
+          return of(null);
+        })
+      );
+  }
 }
