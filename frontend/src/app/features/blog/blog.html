@@ -21,16 +21,11 @@
             <p class="post-date text-muted">
               @if (post.author) { By {{ post.author }} • }
               {{ post.created_at | date : 'MMMM d, yyyy' }}
+              @if(post.likes !== undefined && post.likes > 0) { • {{ post.likes }} Likes }
             </p>
           </div>
           <div class="d-flex flex-column align-items-end" style="gap: 0.5rem">
-            @if(post.likes !== undefined && post.likes > 0) {
-            <app-like-button
-              [postId]="post.id"
-              [count]="post.likes"
-              [readonly]="true"
-            ></app-like-button>
-            } @if (authService.isAuthenticated()) {
+            @if (authService.isAuthenticated()) {
             <button
               class="btn btn-link text-danger delete-btn"
               (click)="deleteBlogPost(post.id)"
