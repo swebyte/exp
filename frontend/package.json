@@ -1,6 +1,6 @@
 {
   "name": "swevin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,8 @@
     "test": "ng test",
     "serve:ssr:frontend": "node dist/frontend/server/server.mjs",
     "serve:prod": "http-server dist/frontend/browser -p 8080 -c-1",
-    "deploy": "ng build --configuration production && gh-pages -d dist/frontend/browser"
+    "deploy": "ng build --configuration production && gh-pages -d dist/frontend/browser",
+    "deploy-cf": "ng build --configuration production && npx wrangler pages deploy dist/frontend/browser --project-name=swevin --branch=main"
   },
   "prettier": {
     "printWidth": 100,

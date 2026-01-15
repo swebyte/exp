@@ -10,7 +10,6 @@ export const routes: Routes = [
     path: 'blog',
     loadComponent: () => import('./features/blog/blog').then((m) => m.BlogComponent),
   },
-  { path: 'blog/', redirectTo: 'blog', pathMatch: 'full' },
   {
     path: 'blog/:id',
     loadComponent: () =>
@@ -21,10 +20,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/experience/experience').then((m) => m.ExperienceComponent),
   },
-  { path: 'experience/', redirectTo: 'experience', pathMatch: 'full' },
   {
     path: 'profile',
     loadComponent: () => import('./features/profile/profile').then((m) => m.ProfileComponent),
   },
-  { path: 'profile/', redirectTo: 'profile', pathMatch: 'full' },
 ];
