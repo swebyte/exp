@@ -1,0 +1,2 @@
+name = "swevin"
+pages_build_output_dir = "dist/frontend/browser"
