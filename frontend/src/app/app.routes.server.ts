@@ -25,4 +25,8 @@ export const serverRoutes: ServerRoute[] = [
     path: 'profile',
     renderMode: RenderMode.Prerender,
   },
+  {
+    path: 'iframe',
+    renderMode: RenderMode.Prerender,
+  },
 ];

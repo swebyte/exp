@@ -24,4 +24,8 @@ export const routes: Routes = [
     path: 'profile',
     loadComponent: () => import('./features/profile/profile').then((m) => m.ProfileComponent),
   },
+  {
+    path: 'iframe',
+    loadComponent: () => import('./features/iframe/iframe').then((m) => m.IframeComponent),
+  },
 ];
