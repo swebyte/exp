@@ -1,12 +1,26 @@
 <div class="container py-3">
   <h1 class="h3 mb-3">Game</h1>
   <div class="iframe-wrapper">
+    <div class="iframe-toolbar d-flex justify-content-end mb-2">
+      <button
+        class="btn btn-primary iframe-fullscreen-btn"
+        aria-label="Toggle fullscreen"
+        type="button"
+        (click)="toggleFullscreen()"
+      >
+        {{ buttonLabel }}
+      </button>
+    </div>
     <iframe
-      src="/embedded/index.html"
+      #embed
+      src="https://endless-frontend.swevin.se"
       title="Embedded Content"
       loading="lazy"
       referrerpolicy="no-referrer"
+      allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
       allowfullscreen
+      webkitallowfullscreen
+      mozallowfullscreen
     ></iframe>
   </div>
 </div>
