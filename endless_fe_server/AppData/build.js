@@ -28,11 +28,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ GameLogic)
 /* harmony export */ });
-/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rogue-engine */ "rogue-engine");
-/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(rogue_engine__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/Controllers/RapierThirdPersonController.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/Controllers/RapierThirdPersonController.re.ts");
 /* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_RapierBody_re__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/RapierBody.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/RapierBody.re.ts");
 /* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_RapierKinematicCharacterController_re__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/RapierKinematicCharacterController.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/RapierKinematicCharacterController.re.ts");
-/* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/Controllers/RapierThirdPersonController.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/Controllers/RapierThirdPersonController.re.ts");
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rogue-engine */ "rogue-engine");
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(rogue_engine__WEBPACK_IMPORTED_MODULE_3__);
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
@@ -49,31 +49,95 @@ var __decorateClass = (decorators, target, key, kind) => {
 
 
 
-let GameLogic = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Component {
+let GameLogic = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_3__.Component {
   constructor() {
     super(...arguments);
     this.isStaticModel = true;
+  }
+  init() {
+    if (rogue_engine__WEBPACK_IMPORTED_MODULE_3__.Runtime.isRunning) {
+      this.start();
+    }
   }
   start() {
     const player = this.playerPrefab.instantiate();
     const body = _RE_RogueEngine_rogue_rapier_Components_RapierBody_re__WEBPACK_IMPORTED_MODULE_1__["default"].get(player);
     if (body)
-      rogue_engine__WEBPACK_IMPORTED_MODULE_0__.removeComponent(body);
+      rogue_engine__WEBPACK_IMPORTED_MODULE_3__.removeComponent(body);
     const controller = _RE_RogueEngine_rogue_rapier_Components_RapierKinematicCharacterController_re__WEBPACK_IMPORTED_MODULE_2__["default"].get(player);
     if (controller)
       controller.enabled = true;
-    const tpc = _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_3__["default"].get(player);
+    const tpc = _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_0__["default"].get(player);
     if (tpc)
       tpc.enabled = true;
   }
 };
 __name(GameLogic, "GameLogic");
 __decorateClass([
-  rogue_engine__WEBPACK_IMPORTED_MODULE_0__.props.prefab()
+  rogue_engine__WEBPACK_IMPORTED_MODULE_3__.props.prefab()
 ], GameLogic.prototype, "playerPrefab", 2);
 GameLogic = __decorateClass([
-  rogue_engine__WEBPACK_IMPORTED_MODULE_0__.registerComponent
+  rogue_engine__WEBPACK_IMPORTED_MODULE_3__.registerComponent
 ], GameLogic);
+
+
+
+/***/ }),
+
+/***/ "./Assets/Scripts/HDR.re.ts":
+/*!**********************************!*\
+  !*** ./Assets/Scripts/HDR.re.ts ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ HDR)
+/* harmony export */ });
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rogue-engine */ "rogue-engine");
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(rogue_engine__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "three");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var three_examples_jsm_loaders_HDRLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! three/examples/jsm/loaders/HDRLoader */ "./node_modules/three/examples/jsm/loaders/HDRLoader.js");
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+var __decorateClass = (decorators, target, key, kind) => {
+  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
+  for (var i = decorators.length - 1, decorator; i >= 0; i--)
+    if (decorator = decorators[i])
+      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
+  if (kind && result)
+    __defProp(target, key, result);
+  return result;
+};
+
+
+
+let HDR = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Component {
+  awake() {
+  }
+  start() {
+    console.log("Loading HDR...");
+    const renderer = rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Runtime.renderer;
+    const scene = rogue_engine__WEBPACK_IMPORTED_MODULE_0__.App.currentScene;
+    const pmremGenerator = new three__WEBPACK_IMPORTED_MODULE_1__.PMREMGenerator(renderer);
+    pmremGenerator.compileEquirectangularShader();
+    new three_examples_jsm_loaders_HDRLoader__WEBPACK_IMPORTED_MODULE_2__.HDRLoader().load("assets/Textures/Cubemaps/qwantani_night_puresky_4k.hdr", (texture) => {
+      const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+      scene.background = envMap;
+      scene.environment = envMap;
+      texture.dispose();
+      pmremGenerator.dispose();
+    });
+  }
+  update() {
+  }
+};
+__name(HDR, "HDR");
+HDR = __decorateClass([
+  rogue_engine__WEBPACK_IMPORTED_MODULE_0__.registerComponent
+], HDR);
 
 
 
@@ -145,7 +209,7 @@ let NetworkManager = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Com
   }
   async start() {
     NetworkManager._instance = this;
-    this.client = new _colyseus_sdk__WEBPACK_IMPORTED_MODULE_2__.Client("https://endless-server.swevin.se");
+    this.client = new _colyseus_sdk__WEBPACK_IMPORTED_MODULE_2__.Client("http://localhost:2567");
     this.room = await this.client.joinOrCreate("my_room");
     window.addEventListener("beforeunload", () => {
       this.room?.leave();
@@ -263,6 +327,9 @@ let PlayerController = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_2__.C
     this.networkVelocity = new three__WEBPACK_IMPORTED_MODULE_3__.Vector3();
     this.sendRate = 0.05;
     this.sendTimer = 0;
+    this.isGrounded = false;
+    this.groundedTimer = 0;
+    this.groundedGrace = 0.15;
   }
   update() {
     if (this.isRemote) {
@@ -280,6 +347,14 @@ let PlayerController = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_2__.C
       return;
     }
     if (this.controller.isGrounded) {
+      this.groundedTimer = this.groundedGrace;
+      this.isGrounded = true;
+    } else {
+      this.groundedTimer -= rogue_engine__WEBPACK_IMPORTED_MODULE_2__.Runtime.deltaTime;
+      if (this.groundedTimer <= 0)
+        this.isGrounded = false;
+    }
+    if (this.isGrounded) {
       const dirLength = this.controller.movementDirection.length();
       if (dirLength > 0) {
         this.animator.setBaseAction("idle");
@@ -312,6 +387,73 @@ __decorateClass([
 PlayerController = __decorateClass([
   rogue_engine__WEBPACK_IMPORTED_MODULE_2__.registerComponent
 ], PlayerController);
+
+
+
+/***/ }),
+
+/***/ "./Assets/Scripts/TerrainRepeat.re.ts":
+/*!********************************************!*\
+  !*** ./Assets/Scripts/TerrainRepeat.re.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TerrainRepeat)
+/* harmony export */ });
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rogue-engine */ "rogue-engine");
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(rogue_engine__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "three");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_1__);
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+var __decorateClass = (decorators, target, key, kind) => {
+  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
+  for (var i = decorators.length - 1, decorator; i >= 0; i--)
+    if (decorator = decorators[i])
+      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
+  if (kind && result)
+    __defProp(target, key, result);
+  return result;
+};
+
+
+let TerrainRepeat = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Component {
+  awake() {
+  }
+  start() {
+    const mesh = this.object3d;
+    const material = mesh.material;
+    const repeat = 40;
+    console.log(mesh.material);
+    if (material.map) {
+      material.map.wrapS = three__WEBPACK_IMPORTED_MODULE_1__.RepeatWrapping;
+      material.map.wrapT = three__WEBPACK_IMPORTED_MODULE_1__.RepeatWrapping;
+      material.map.repeat.set(repeat, repeat);
+      material.map.needsUpdate = true;
+    }
+    if (material.normalMap) {
+      material.normalMap.wrapS = three__WEBPACK_IMPORTED_MODULE_1__.RepeatWrapping;
+      material.normalMap.wrapT = three__WEBPACK_IMPORTED_MODULE_1__.RepeatWrapping;
+      material.normalMap.repeat.set(repeat, repeat);
+      material.normalMap.needsUpdate = true;
+    }
+    if (material.roughnessMap) {
+      material.roughnessMap.wrapS = three__WEBPACK_IMPORTED_MODULE_1__.RepeatWrapping;
+      material.roughnessMap.wrapT = three__WEBPACK_IMPORTED_MODULE_1__.RepeatWrapping;
+      material.roughnessMap.repeat.set(repeat, repeat);
+      material.roughnessMap.needsUpdate = true;
+    }
+  }
+  update() {
+  }
+};
+__name(TerrainRepeat, "TerrainRepeat");
+TerrainRepeat = __decorateClass([
+  rogue_engine__WEBPACK_IMPORTED_MODULE_0__.registerComponent
+], TerrainRepeat);
 
 
 
@@ -13562,6 +13704,499 @@ let A;const I=new Array(128).fill(void 0);function g(A){return I[A]}I.push(void 
 //# sourceMappingURL=rapier.mjs.map
 
 
+/***/ }),
+
+/***/ "./node_modules/three/examples/jsm/loaders/HDRLoader.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/three/examples/jsm/loaders/HDRLoader.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "HDRLoader": () => (/* binding */ HDRLoader)
+/* harmony export */ });
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ "three");
+
+
+/**
+ * A loader for the RGBE HDR texture format.
+ *
+ * ```js
+ * const loader = new HDRLoader();
+ * const envMap = await loader.loadAsync( 'textures/equirectangular/blouberg_sunrise_2_1k.hdr' );
+ * envMap.mapping = THREE.EquirectangularReflectionMapping;
+ *
+ * scene.environment = envMap;
+ * ```
+ *
+ * @augments DataTextureLoader
+ * @three_import import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
+ */
+class HDRLoader extends three__WEBPACK_IMPORTED_MODULE_0__.DataTextureLoader {
+
+	/**
+     * Constructs a new RGBE/HDR loader.
+     *
+     * @param {LoadingManager} [manager] - The loading manager.
+     */
+	constructor( manager ) {
+
+		super( manager );
+
+		/**
+         * The texture type.
+         *
+         * @type {(HalfFloatType|FloatType)}
+         * @default HalfFloatType
+         */
+		this.type = three__WEBPACK_IMPORTED_MODULE_0__.HalfFloatType;
+
+	}
+
+	/**
+     * Parses the given RGBE texture data.
+     *
+     * @param {ArrayBuffer} buffer - The raw texture data.
+     * @return {DataTextureLoader~TexData} An object representing the parsed texture data.
+     */
+	parse( buffer ) {
+
+		// adapted from http://www.graphics.cornell.edu/~bjw/rgbe.html
+
+		const
+			/* default error routine.  change this to change error handling */
+			rgbe_read_error = 1,
+			rgbe_write_error = 2,
+			rgbe_format_error = 3,
+			rgbe_memory_error = 4,
+			rgbe_error = function ( rgbe_error_code, msg ) {
+
+				switch ( rgbe_error_code ) {
+
+					case rgbe_read_error: throw new Error( 'THREE.HDRLoader: Read Error: ' + ( msg || '' ) );
+					case rgbe_write_error: throw new Error( 'THREE.HDRLoader: Write Error: ' + ( msg || '' ) );
+					case rgbe_format_error: throw new Error( 'THREE.HDRLoader: Bad File Format: ' + ( msg || '' ) );
+					default:
+					case rgbe_memory_error: throw new Error( 'THREE.HDRLoader: Memory Error: ' + ( msg || '' ) );
+
+				}
+
+			},
+
+			/* offsets to red, green, and blue components in a data (float) pixel */
+			//RGBE_DATA_RED = 0,
+			//RGBE_DATA_GREEN = 1,
+			//RGBE_DATA_BLUE = 2,
+
+			/* number of floats per pixel, use 4 since stored in rgba image format */
+			//RGBE_DATA_SIZE = 4,
+
+			/* flags indicating which fields in an rgbe_header_info are valid */
+			RGBE_VALID_PROGRAMTYPE = 1,
+			RGBE_VALID_FORMAT = 2,
+			RGBE_VALID_DIMENSIONS = 4,
+
+			NEWLINE = '\n',
+
+			fgets = function ( buffer, lineLimit, consume ) {
+
+				const chunkSize = 128;
+
+				lineLimit = ! lineLimit ? 1024 : lineLimit;
+				let p = buffer.pos,
+					i = - 1, len = 0, s = '',
+					chunk = String.fromCharCode.apply( null, new Uint16Array( buffer.subarray( p, p + chunkSize ) ) );
+
+				while ( ( 0 > ( i = chunk.indexOf( NEWLINE ) ) ) && ( len < lineLimit ) && ( p < buffer.byteLength ) ) {
+
+					s += chunk; len += chunk.length;
+					p += chunkSize;
+					chunk += String.fromCharCode.apply( null, new Uint16Array( buffer.subarray( p, p + chunkSize ) ) );
+
+				}
+
+				if ( - 1 < i ) {
+
+					/*for (i=l-1; i>=0; i--) {
+                        byteCode = m.charCodeAt(i);
+                        if (byteCode > 0x7f && byteCode <= 0x7ff) byteLen++;
+                        else if (byteCode > 0x7ff && byteCode <= 0xffff) byteLen += 2;
+                        if (byteCode >= 0xDC00 && byteCode <= 0xDFFF) i--; //trail surrogate
+                    }*/
+					if ( false !== consume ) buffer.pos += len + i + 1;
+					return s + chunk.slice( 0, i );
+
+				}
+
+				return false;
+
+			},
+
+			/* minimal header reading.  modify if you want to parse more information */
+			RGBE_ReadHeader = function ( buffer ) {
+
+
+				// regexes to parse header info fields
+				const magic_token_re = /^#\?(\S+)/,
+					gamma_re = /^\s*GAMMA\s*=\s*(\d+(\.\d+)?)\s*$/,
+					exposure_re = /^\s*EXPOSURE\s*=\s*(\d+(\.\d+)?)\s*$/,
+					format_re = /^\s*FORMAT=(\S+)\s*$/,
+					dimensions_re = /^\s*\-Y\s+(\d+)\s+\+X\s+(\d+)\s*$/,
+
+					// RGBE format header struct
+					header = {
+
+						valid: 0, /* indicate which fields are valid */
+
+						string: '', /* the actual header string */
+
+						comments: '', /* comments found in header */
+
+						programtype: 'RGBE', /* listed at beginning of file to identify it after "#?". defaults to "RGBE" */
+
+						format: '', /* RGBE format, default 32-bit_rle_rgbe */
+
+						gamma: 1.0, /* image has already been gamma corrected with given gamma. defaults to 1.0 (no correction) */
+
+						exposure: 1.0, /* a value of 1.0 in an image corresponds to <exposure> watts/steradian/m^2. defaults to 1.0 */
+
+						width: 0, height: 0 /* image dimensions, width/height */
+
+					};
+
+				let line, match;
+
+				if ( buffer.pos >= buffer.byteLength || ! ( line = fgets( buffer ) ) ) {
+
+					rgbe_error( rgbe_read_error, 'no header found' );
+
+				}
+
+				/* if you want to require the magic token then uncomment the next line */
+				if ( ! ( match = line.match( magic_token_re ) ) ) {
+
+					rgbe_error( rgbe_format_error, 'bad initial token' );
+
+				}
+
+				header.valid |= RGBE_VALID_PROGRAMTYPE;
+				header.programtype = match[ 1 ];
+				header.string += line + '\n';
+
+				while ( true ) {
+
+					line = fgets( buffer );
+					if ( false === line ) break;
+					header.string += line + '\n';
+
+					if ( '#' === line.charAt( 0 ) ) {
+
+						header.comments += line + '\n';
+						continue; // comment line
+
+					}
+
+					if ( match = line.match( gamma_re ) ) {
+
+						header.gamma = parseFloat( match[ 1 ] );
+
+					}
+
+					if ( match = line.match( exposure_re ) ) {
+
+						header.exposure = parseFloat( match[ 1 ] );
+
+					}
+
+					if ( match = line.match( format_re ) ) {
+
+						header.valid |= RGBE_VALID_FORMAT;
+						header.format = match[ 1 ];//'32-bit_rle_rgbe';
+
+					}
+
+					if ( match = line.match( dimensions_re ) ) {
+
+						header.valid |= RGBE_VALID_DIMENSIONS;
+						header.height = parseInt( match[ 1 ], 10 );
+						header.width = parseInt( match[ 2 ], 10 );
+
+					}
+
+					if ( ( header.valid & RGBE_VALID_FORMAT ) && ( header.valid & RGBE_VALID_DIMENSIONS ) ) break;
+
+				}
+
+				if ( ! ( header.valid & RGBE_VALID_FORMAT ) ) {
+
+					rgbe_error( rgbe_format_error, 'missing format specifier' );
+
+				}
+
+				if ( ! ( header.valid & RGBE_VALID_DIMENSIONS ) ) {
+
+					rgbe_error( rgbe_format_error, 'missing image size specifier' );
+
+				}
+
+				return header;
+
+			},
+
+			RGBE_ReadPixels_RLE = function ( buffer, w, h ) {
+
+				const scanline_width = w;
+
+				if (
+				// run length encoding is not allowed so read flat
+					( ( scanline_width < 8 ) || ( scanline_width > 0x7fff ) ) ||
+                    // this file is not run length encoded
+                    ( ( 2 !== buffer[ 0 ] ) || ( 2 !== buffer[ 1 ] ) || ( buffer[ 2 ] & 0x80 ) )
+				) {
+
+					// return the flat buffer
+					return new Uint8Array( buffer );
+
+				}
+
+				if ( scanline_width !== ( ( buffer[ 2 ] << 8 ) | buffer[ 3 ] ) ) {
+
+					rgbe_error( rgbe_format_error, 'wrong scanline width' );
+
+				}
+
+				const data_rgba = new Uint8Array( 4 * w * h );
+
+				if ( ! data_rgba.length ) {
+
+					rgbe_error( rgbe_memory_error, 'unable to allocate buffer space' );
+
+				}
+
+				let offset = 0, pos = 0;
+
+				const ptr_end = 4 * scanline_width;
+				const rgbeStart = new Uint8Array( 4 );
+				const scanline_buffer = new Uint8Array( ptr_end );
+				let num_scanlines = h;
+
+				// read in each successive scanline
+				while ( ( num_scanlines > 0 ) && ( pos < buffer.byteLength ) ) {
+
+					if ( pos + 4 > buffer.byteLength ) {
+
+						rgbe_error( rgbe_read_error );
+
+					}
+
+					rgbeStart[ 0 ] = buffer[ pos ++ ];
+					rgbeStart[ 1 ] = buffer[ pos ++ ];
+					rgbeStart[ 2 ] = buffer[ pos ++ ];
+					rgbeStart[ 3 ] = buffer[ pos ++ ];
+
+					if ( ( 2 != rgbeStart[ 0 ] ) || ( 2 != rgbeStart[ 1 ] ) || ( ( ( rgbeStart[ 2 ] << 8 ) | rgbeStart[ 3 ] ) != scanline_width ) ) {
+
+						rgbe_error( rgbe_format_error, 'bad rgbe scanline format' );
+
+					}
+
+					// read each of the four channels for the scanline into the buffer
+					// first red, then green, then blue, then exponent
+					let ptr = 0, count;
+
+					while ( ( ptr < ptr_end ) && ( pos < buffer.byteLength ) ) {
+
+						count = buffer[ pos ++ ];
+						const isEncodedRun = count > 128;
+						if ( isEncodedRun ) count -= 128;
+
+						if ( ( 0 === count ) || ( ptr + count > ptr_end ) ) {
+
+							rgbe_error( rgbe_format_error, 'bad scanline data' );
+
+						}
+
+						if ( isEncodedRun ) {
+
+							// a (encoded) run of the same value
+							const byteValue = buffer[ pos ++ ];
+							for ( let i = 0; i < count; i ++ ) {
+
+								scanline_buffer[ ptr ++ ] = byteValue;
+
+							}
+							//ptr += count;
+
+						} else {
+
+							// a literal-run
+							scanline_buffer.set( buffer.subarray( pos, pos + count ), ptr );
+							ptr += count; pos += count;
+
+						}
+
+					}
+
+
+					// now convert data from buffer into rgba
+					// first red, then green, then blue, then exponent (alpha)
+					const l = scanline_width; //scanline_buffer.byteLength;
+					for ( let i = 0; i < l; i ++ ) {
+
+						let off = 0;
+						data_rgba[ offset ] = scanline_buffer[ i + off ];
+						off += scanline_width; //1;
+						data_rgba[ offset + 1 ] = scanline_buffer[ i + off ];
+						off += scanline_width; //1;
+						data_rgba[ offset + 2 ] = scanline_buffer[ i + off ];
+						off += scanline_width; //1;
+						data_rgba[ offset + 3 ] = scanline_buffer[ i + off ];
+						offset += 4;
+
+					}
+
+					num_scanlines --;
+
+				}
+
+				return data_rgba;
+
+			};
+
+		const RGBEByteToRGBFloat = function ( sourceArray, sourceOffset, destArray, destOffset ) {
+
+			const e = sourceArray[ sourceOffset + 3 ];
+			const scale = Math.pow( 2.0, e - 128.0 ) / 255.0;
+
+			destArray[ destOffset + 0 ] = sourceArray[ sourceOffset + 0 ] * scale;
+			destArray[ destOffset + 1 ] = sourceArray[ sourceOffset + 1 ] * scale;
+			destArray[ destOffset + 2 ] = sourceArray[ sourceOffset + 2 ] * scale;
+			destArray[ destOffset + 3 ] = 1;
+
+		};
+
+		const RGBEByteToRGBHalf = function ( sourceArray, sourceOffset, destArray, destOffset ) {
+
+			const e = sourceArray[ sourceOffset + 3 ];
+			const scale = Math.pow( 2.0, e - 128.0 ) / 255.0;
+
+			// clamping to 65504, the maximum representable value in float16
+			destArray[ destOffset + 0 ] = three__WEBPACK_IMPORTED_MODULE_0__.DataUtils.toHalfFloat( Math.min( sourceArray[ sourceOffset + 0 ] * scale, 65504 ) );
+			destArray[ destOffset + 1 ] = three__WEBPACK_IMPORTED_MODULE_0__.DataUtils.toHalfFloat( Math.min( sourceArray[ sourceOffset + 1 ] * scale, 65504 ) );
+			destArray[ destOffset + 2 ] = three__WEBPACK_IMPORTED_MODULE_0__.DataUtils.toHalfFloat( Math.min( sourceArray[ sourceOffset + 2 ] * scale, 65504 ) );
+			destArray[ destOffset + 3 ] = three__WEBPACK_IMPORTED_MODULE_0__.DataUtils.toHalfFloat( 1 );
+
+		};
+
+		const byteArray = new Uint8Array( buffer );
+		byteArray.pos = 0;
+		const rgbe_header_info = RGBE_ReadHeader( byteArray );
+
+		const w = rgbe_header_info.width,
+			h = rgbe_header_info.height,
+			image_rgba_data = RGBE_ReadPixels_RLE( byteArray.subarray( byteArray.pos ), w, h );
+
+
+		let data, type;
+		let numElements;
+
+		switch ( this.type ) {
+
+			case three__WEBPACK_IMPORTED_MODULE_0__.FloatType:
+
+				numElements = image_rgba_data.length / 4;
+				const floatArray = new Float32Array( numElements * 4 );
+
+				for ( let j = 0; j < numElements; j ++ ) {
+
+					RGBEByteToRGBFloat( image_rgba_data, j * 4, floatArray, j * 4 );
+
+				}
+
+				data = floatArray;
+				type = three__WEBPACK_IMPORTED_MODULE_0__.FloatType;
+				break;
+
+			case three__WEBPACK_IMPORTED_MODULE_0__.HalfFloatType:
+
+				numElements = image_rgba_data.length / 4;
+				const halfArray = new Uint16Array( numElements * 4 );
+
+				for ( let j = 0; j < numElements; j ++ ) {
+
+					RGBEByteToRGBHalf( image_rgba_data, j * 4, halfArray, j * 4 );
+
+				}
+
+				data = halfArray;
+				type = three__WEBPACK_IMPORTED_MODULE_0__.HalfFloatType;
+				break;
+
+			default:
+
+				throw new Error( 'THREE.HDRLoader: Unsupported type: ' + this.type );
+
+		}
+
+		return {
+			width: w, height: h,
+			data: data,
+			header: rgbe_header_info.string,
+			gamma: rgbe_header_info.gamma,
+			exposure: rgbe_header_info.exposure,
+			type: type
+		};
+
+	}
+
+	/**
+     * Sets the texture type.
+     *
+     * @param {(HalfFloatType|FloatType)} value - The texture type to set.
+     * @return {HDRLoader} A reference to this loader.
+     */
+	setDataType( value ) {
+
+		this.type = value;
+		return this;
+
+	}
+
+	load( url, onLoad, onProgress, onError ) {
+
+		function onLoadCallback( texture, texData ) {
+
+			switch ( texture.type ) {
+
+				case three__WEBPACK_IMPORTED_MODULE_0__.FloatType:
+				case three__WEBPACK_IMPORTED_MODULE_0__.HalfFloatType:
+
+					texture.colorSpace = three__WEBPACK_IMPORTED_MODULE_0__.LinearSRGBColorSpace;
+					texture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+					texture.magFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+					texture.generateMipmaps = false;
+					texture.flipY = true;
+
+					break;
+
+			}
+
+			if ( onLoad ) onLoad( texture, texData );
+
+		}
+
+		return super.load( url, onLoadCallback, onProgress, onError );
+
+	}
+
+}
+
+
+
+
+
+
 /***/ })
 
 /******/ 	});
@@ -13744,8 +14379,10 @@ let A;const I=new Array(128).fill(void 0);function g(A){return I[A]}I.push(void 
 /******/ 	__webpack_require__("./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/RapierKinematicCharacterController.re.ts");
 /******/ 	__webpack_require__("./Assets/rogue_packages/RogueEngine/rogue-rapier/Lib/RogueRapier.ts");
 /******/ 	__webpack_require__("./Assets/Scripts/GameLogic.re.ts");
+/******/ 	__webpack_require__("./Assets/Scripts/HDR.re.ts");
 /******/ 	__webpack_require__("./Assets/Scripts/NetworkManager.re.ts");
-/******/ 	var __webpack_exports__ = __webpack_require__("./Assets/Scripts/PlayerController.re.ts");
+/******/ 	__webpack_require__("./Assets/Scripts/PlayerController.re.ts");
+/******/ 	var __webpack_exports__ = __webpack_require__("./Assets/Scripts/TerrainRepeat.re.ts");
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ 	return __webpack_exports__;
@@ -13753,4 +14390,4 @@ let A;const I=new Array(128).fill(void 0);function g(A){return I[A]}I.push(void 
 ;
 });
 //# sourceMappingURL=rogue-engine-user-scripts.js.map
-window['rogue-engine'].App.play({"title":"Endless","scenes":[{"name":"world1","uuid":"31eebf83-ae58-47ce-bfa0-e0cd08a91387"}],"projectVersion":30,"assetPaths":{"87500c41-20e9-4cf7-84d8-0ed4a80d3ff7":"AppData/87500c41-20e9-4cf7-84d8-0ed4a80d3ff7.roguePrefab","38f9a99e-e4a4-47a1-b44c-3205d637854f":"AppData/38f9a99e-e4a4-47a1-b44c-3205d637854f.roguePrefab","32cf395b-c12f-43e8-a902-5aa7a54b3e9d":"AppData/32cf395b-c12f-43e8-a902-5aa7a54b3e9d.roguePrefab","73847e39-1488-4ce6-b1c5-3007c93f3b05":"AppData/73847e39-1488-4ce6-b1c5-3007c93f3b05.rogueAnimation","5314d7bb-9f7f-4484-a387-028d7ebb16b6":"AppData/5314d7bb-9f7f-4484-a387-028d7ebb16b6.rogueAnimation","94083f2d-989d-4a55-8eb0-653fd9055586":"AppData/94083f2d-989d-4a55-8eb0-653fd9055586.rogueAnimation","94adf5f1-2502-4d54-a02e-c6d5a79602d5":"AppData/94adf5f1-2502-4d54-a02e-c6d5a79602d5.rogueAnimation","b70d1958-96c0-43f1-92e8-47e0e6deca62":"AppData/b70d1958-96c0-43f1-92e8-47e0e6deca62.roguePrefab","163dda57-4d00-4dd7-9578-3baaeb65fa88":"AppData/163dda57-4d00-4dd7-9578-3baaeb65fa88.jpg","c028093e-d750-4b41-a96b-49caa91647de":"AppData/c028093e-d750-4b41-a96b-49caa91647de.jpg","c4ae8e6b-9909-4aa9-9f2c-b7b2273dcd8f":"AppData/c4ae8e6b-9909-4aa9-9f2c-b7b2273dcd8f.jpg","b64a192e-770a-4313-8eca-d95a0bc45a4f":"AppData/b64a192e-770a-4313-8eca-d95a0bc45a4f.jpg","28d08608-2c25-493e-8472-d034c591bde9":"AppData/28d08608-2c25-493e-8472-d034c591bde9.jpg","a561971b-8a6d-457d-9957-84cb2dd496a1":"AppData/a561971b-8a6d-457d-9957-84cb2dd496a1.jpg","31eebf83-ae58-47ce-bfa0-e0cd08a91387":"AppData/31eebf83-ae58-47ce-bfa0-e0cd08a91387.rogueScene"},"namedPrefabUUIDs":{"ExampleCar":"87500c41-20e9-4cf7-84d8-0ed4a80d3ff7","FirstPersonCharacter":"38f9a99e-e4a4-47a1-b44c-3205d637854f","ThirdPersonCharacter":"b70d1958-96c0-43f1-92e8-47e0e6deca62"}});
+window['rogue-engine'].App.play({"title":"Endless","scenes":[{"name":"world1","uuid":"31eebf83-ae58-47ce-bfa0-e0cd08a91387"}],"projectVersion":30,"assetPaths":{"054b79e9-3c1c-46aa-a813-36d78dfa7217":"AppData/054b79e9-3c1c-46aa-a813-36d78dfa7217.roguePrefab","b1dd03d1-30d6-4824-ad0d-eb62c88d8aa2":"AppData/b1dd03d1-30d6-4824-ad0d-eb62c88d8aa2.roguePrefab","b7152b85-7f32-44fc-ac63-e3aff6241d28":"AppData/b7152b85-7f32-44fc-ac63-e3aff6241d28.roguePrefab","35bc250c-2f12-4bd9-b813-f149d1045ff9":"AppData/35bc250c-2f12-4bd9-b813-f149d1045ff9.rogueAnimation","5314d7bb-9f7f-4484-a387-028d7ebb16b6":"AppData/5314d7bb-9f7f-4484-a387-028d7ebb16b6.rogueAnimation","6aa0fe1f-ad2e-43ee-94c2-61fbb266364c":"AppData/6aa0fe1f-ad2e-43ee-94c2-61fbb266364c.rogueAnimation","4e2644b9-8be8-4b37-9cd4-5bc01760d5fb":"AppData/4e2644b9-8be8-4b37-9cd4-5bc01760d5fb.rogueAnimation","c97e0e1a-8f95-49c2-bc23-1e064c5e50e2":"AppData/c97e0e1a-8f95-49c2-bc23-1e064c5e50e2.rogueAnimation","ce700725-33ed-4cdf-b98c-4787f69a2223":"AppData/ce700725-33ed-4cdf-b98c-4787f69a2223.rogueAnimation","1fae0ca2-3e38-431b-8475-ae5b9836710c":"AppData/1fae0ca2-3e38-431b-8475-ae5b9836710c.png","d7c0ad5d-9fb0-4304-8b6d-789cc25b0e79":"AppData/d7c0ad5d-9fb0-4304-8b6d-789cc25b0e79.png","ef8212ed-e4ae-491f-a433-df009b34db52":"AppData/ef8212ed-e4ae-491f-a433-df009b34db52.png","f08b52c4-ca2a-4f50-be8f-e00b09e5e4df":"AppData/f08b52c4-ca2a-4f50-be8f-e00b09e5e4df.rogueMaterial","b70d1958-96c0-43f1-92e8-47e0e6deca62":"AppData/b70d1958-96c0-43f1-92e8-47e0e6deca62.roguePrefab","5c9966c2-951b-426a-8819-c70ca51579b5":"AppData/5c9966c2-951b-426a-8819-c70ca51579b5.roguePrefab","87500c41-20e9-4cf7-84d8-0ed4a80d3ff7":"AppData/87500c41-20e9-4cf7-84d8-0ed4a80d3ff7.roguePrefab","38f9a99e-e4a4-47a1-b44c-3205d637854f":"AppData/38f9a99e-e4a4-47a1-b44c-3205d637854f.roguePrefab","32cf395b-c12f-43e8-a902-5aa7a54b3e9d":"AppData/32cf395b-c12f-43e8-a902-5aa7a54b3e9d.roguePrefab","29c801d8-ffb7-4366-90ec-e4b6dc8c0dbe":"AppData/29c801d8-ffb7-4366-90ec-e4b6dc8c0dbe.png","b42921f6-83a8-437b-8f65-3d4505c6f23c":"AppData/b42921f6-83a8-437b-8f65-3d4505c6f23c.png","f5d3455a-4cc4-4556-aa39-f1f916f46fa4":"AppData/f5d3455a-4cc4-4556-aa39-f1f916f46fa4.png","636d3f21-a7df-42a0-ab16-a397d9c768da":"AppData/636d3f21-a7df-42a0-ab16-a397d9c768da.png","fce5a9d5-086a-4782-89ce-68739671203a":"AppData/fce5a9d5-086a-4782-89ce-68739671203a.png","34a234a6-41f5-4e78-9593-5c14854cff2f":"AppData/34a234a6-41f5-4e78-9593-5c14854cff2f.png","958e20b8-e5ea-43f9-a3d9-cad3bc88db74":"AppData/958e20b8-e5ea-43f9-a3d9-cad3bc88db74.jpg","84c92300-c579-49b8-a8db-714c5512aedf":"AppData/84c92300-c579-49b8-a8db-714c5512aedf.png","78637a2b-1355-4e69-b2af-39dbacb5aa64":"AppData/78637a2b-1355-4e69-b2af-39dbacb5aa64.jpg","f3f69665-f1b6-465d-b946-b6243ea24066":"AppData/f3f69665-f1b6-465d-b946-b6243ea24066.rogueMaterial","31eebf83-ae58-47ce-bfa0-e0cd08a91387":"AppData/31eebf83-ae58-47ce-bfa0-e0cd08a91387.rogueScene"},"namedPrefabUUIDs":{"Rock_3_O_Color1":"054b79e9-3c1c-46aa-a813-36d78dfa7217","Rock_3_P_Color1":"b1dd03d1-30d6-4824-ad0d-eb62c88d8aa2","Rock_3_Q_Color1":"b7152b85-7f32-44fc-ac63-e3aff6241d28","ThirdPersonCharacter":"32cf395b-c12f-43e8-a902-5aa7a54b3e9d","Tree_3_C_Color1":"5c9966c2-951b-426a-8819-c70ca51579b5","ExampleCar":"87500c41-20e9-4cf7-84d8-0ed4a80d3ff7","FirstPersonCharacter":"38f9a99e-e4a4-47a1-b44c-3205d637854f"}});
