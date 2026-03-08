@@ -153,14 +153,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ NetworkManager)
 /* harmony export */ });
-/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rogue-engine */ "rogue-engine");
-/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(rogue_engine__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "three");
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _colyseus_sdk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @colyseus/sdk */ "./node_modules/@colyseus/sdk/build/index.mjs");
-/* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_RapierBody_re__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/RapierBody.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/RapierBody.re.ts");
-/* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_RapierKinematicCharacterController_re__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/RapierKinematicCharacterController.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/RapierKinematicCharacterController.re.ts");
-/* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/Controllers/RapierThirdPersonController.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/Controllers/RapierThirdPersonController.re.ts");
+/* harmony import */ var _colyseus_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @colyseus/sdk */ "./node_modules/@colyseus/sdk/build/index.mjs");
+/* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/Controllers/RapierThirdPersonController.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/Controllers/RapierThirdPersonController.re.ts");
+/* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_RapierBody_re__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/RapierBody.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/RapierBody.re.ts");
+/* harmony import */ var _RE_RogueEngine_rogue_rapier_Components_RapierKinematicCharacterController_re__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @RE/RogueEngine/rogue-rapier/Components/RapierKinematicCharacterController.re */ "./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/RapierKinematicCharacterController.re.ts");
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rogue-engine */ "rogue-engine");
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(rogue_engine__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! three */ "three");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _PlayerController_re__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./PlayerController.re */ "./Assets/Scripts/PlayerController.re.ts");
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -181,7 +181,7 @@ var __decorateClass = (decorators, target, key, kind) => {
 
 
 
-let NetworkManager = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Component {
+let NetworkManager = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_4__.Component {
   constructor() {
     super(...arguments);
     this.remotePlayers = new Map();
@@ -209,43 +209,43 @@ let NetworkManager = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Com
   }
   async start() {
     NetworkManager._instance = this;
-    this.client = new _colyseus_sdk__WEBPACK_IMPORTED_MODULE_2__.Client("http://localhost:2567");
+    this.client = new _colyseus_sdk__WEBPACK_IMPORTED_MODULE_0__.Client("https://endless-server.swevin.se");
     this.room = await this.client.joinOrCreate("my_room");
     window.addEventListener("beforeunload", () => {
       this.room?.leave();
     });
     console.log("Connected to room:", this.room.sessionId);
     const player = this.prefab.instantiate();
-    const body = _RE_RogueEngine_rogue_rapier_Components_RapierBody_re__WEBPACK_IMPORTED_MODULE_3__["default"].get(player);
+    const body = _RE_RogueEngine_rogue_rapier_Components_RapierBody_re__WEBPACK_IMPORTED_MODULE_2__["default"].get(player);
     if (body)
-      rogue_engine__WEBPACK_IMPORTED_MODULE_0__.removeComponent(body);
-    const controller = _RE_RogueEngine_rogue_rapier_Components_RapierKinematicCharacterController_re__WEBPACK_IMPORTED_MODULE_4__["default"].get(player);
+      rogue_engine__WEBPACK_IMPORTED_MODULE_4__.removeComponent(body);
+    const controller = _RE_RogueEngine_rogue_rapier_Components_RapierKinematicCharacterController_re__WEBPACK_IMPORTED_MODULE_3__["default"].get(player);
     if (controller)
       controller.enabled = true;
-    const tpc = _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_5__["default"].get(player);
+    const tpc = _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_1__["default"].get(player);
     if (tpc)
       tpc.enabled = true;
-    const callbacks = _colyseus_sdk__WEBPACK_IMPORTED_MODULE_2__.Callbacks.get(this.room);
+    const callbacks = _colyseus_sdk__WEBPACK_IMPORTED_MODULE_0__.Callbacks.get(this.room);
     callbacks.onAdd("players", (player2, sessionId) => {
       if (sessionId === this.room.sessionId)
         return;
       console.log("Remote player joined:", sessionId);
       const mesh = this.prefab.instantiate();
       this.remotePlayers.set(sessionId, mesh);
-      const kkc = _RE_RogueEngine_rogue_rapier_Components_RapierKinematicCharacterController_re__WEBPACK_IMPORTED_MODULE_4__["default"].get(mesh);
+      const kkc = _RE_RogueEngine_rogue_rapier_Components_RapierKinematicCharacterController_re__WEBPACK_IMPORTED_MODULE_3__["default"].get(mesh);
       if (kkc)
         kkc.enabled = false;
-      const rtpc = _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_5__["default"].get(mesh);
+      const rtpc = _RE_RogueEngine_rogue_rapier_Components_Controllers_RapierThirdPersonController_re__WEBPACK_IMPORTED_MODULE_1__["default"].get(mesh);
       if (rtpc)
         rtpc.enabled = false;
-      const body2 = _RE_RogueEngine_rogue_rapier_Components_RapierBody_re__WEBPACK_IMPORTED_MODULE_3__["default"].get(mesh);
+      const body2 = _RE_RogueEngine_rogue_rapier_Components_RapierBody_re__WEBPACK_IMPORTED_MODULE_2__["default"].get(mesh);
       if (body2)
-        rogue_engine__WEBPACK_IMPORTED_MODULE_0__.removeComponent(body2);
+        rogue_engine__WEBPACK_IMPORTED_MODULE_4__.removeComponent(body2);
       const pc = _PlayerController_re__WEBPACK_IMPORTED_MODULE_6__["default"].get(mesh);
       if (pc) {
         pc.isRemote = true;
-        pc.targetPosition = new three__WEBPACK_IMPORTED_MODULE_1__.Vector3(0, 20, 0);
-        pc.targetQuaternion = new three__WEBPACK_IMPORTED_MODULE_1__.Quaternion();
+        pc.targetPosition = new three__WEBPACK_IMPORTED_MODULE_5__.Vector3(0, 20, 0);
+        pc.targetQuaternion = new three__WEBPACK_IMPORTED_MODULE_5__.Quaternion();
       }
       callbacks.onChange(player2, () => {
         if (pc) {
@@ -273,10 +273,10 @@ let NetworkManager = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Com
 };
 __name(NetworkManager, "NetworkManager");
 __decorateClass([
-  rogue_engine__WEBPACK_IMPORTED_MODULE_0__.props.prefab()
+  rogue_engine__WEBPACK_IMPORTED_MODULE_4__.props.prefab()
 ], NetworkManager.prototype, "prefab", 2);
 NetworkManager = __decorateClass([
-  rogue_engine__WEBPACK_IMPORTED_MODULE_0__.registerComponent
+  rogue_engine__WEBPACK_IMPORTED_MODULE_4__.registerComponent
 ], NetworkManager);
 
 
