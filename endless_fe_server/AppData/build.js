@@ -84,6 +84,51 @@ GameLogic = __decorateClass([
 
 /***/ }),
 
+/***/ "./Assets/Scripts/HelloWorld.re.ts":
+/*!*****************************************!*\
+  !*** ./Assets/Scripts/HelloWorld.re.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ HelloWorld)
+/* harmony export */ });
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rogue-engine */ "rogue-engine");
+/* harmony import */ var rogue_engine__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(rogue_engine__WEBPACK_IMPORTED_MODULE_0__);
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+var __decorateClass = (decorators, target, key, kind) => {
+  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
+  for (var i = decorators.length - 1, decorator; i >= 0; i--)
+    if (decorator = decorators[i])
+      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
+  if (kind && result)
+    __defProp(target, key, result);
+  return result;
+};
+
+let HelloWorld = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Component {
+  awake() {
+    console.log("Hello, Rogue Engine!");
+  }
+  start() {
+    console.log("Hello, Rogue Engine!");
+  }
+  update() {
+    console.log("Hello, Rogue Engine!");
+  }
+};
+__name(HelloWorld, "HelloWorld");
+HelloWorld = __decorateClass([
+  rogue_engine__WEBPACK_IMPORTED_MODULE_0__.registerComponent
+], HelloWorld);
+
+
+
+/***/ }),
+
 /***/ "./Assets/Scripts/NetworkManager.re.ts":
 /*!*********************************************!*\
   !*** ./Assets/Scripts/NetworkManager.re.ts ***!
@@ -365,6 +410,7 @@ let TerrainRepeat = class extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Comp
   awake() {
   }
   start() {
+    console.log("Hello, from TerrainRepeat:start()!");
     const mesh = this.object3d;
     const material = mesh.material;
     const repeat = 40;
@@ -13826,6 +13872,7 @@ let A;const I=new Array(128).fill(void 0);function g(A){return I[A]}I.push(void 
 /******/ 	__webpack_require__("./Assets/rogue_packages/RogueEngine/rogue-rapier/Components/RapierKinematicCharacterController.re.ts");
 /******/ 	__webpack_require__("./Assets/rogue_packages/RogueEngine/rogue-rapier/Lib/RogueRapier.ts");
 /******/ 	__webpack_require__("./Assets/Scripts/GameLogic.re.ts");
+/******/ 	__webpack_require__("./Assets/Scripts/HelloWorld.re.ts");
 /******/ 	__webpack_require__("./Assets/Scripts/NetworkManager.re.ts");
 /******/ 	__webpack_require__("./Assets/Scripts/PlayerController.re.ts");
 /******/ 	var __webpack_exports__ = __webpack_require__("./Assets/Scripts/TerrainRepeat.re.ts");
@@ -13836,4 +13883,4 @@ let A;const I=new Array(128).fill(void 0);function g(A){return I[A]}I.push(void 
 ;
 });
 //# sourceMappingURL=rogue-engine-user-scripts.js.map
-window['rogue-engine'].App.play({"title":"Endless","scenes":[{"name":"world1","uuid":"31eebf83-ae58-47ce-bfa0-e0cd08a91387"}],"projectVersion":30,"assetPaths":{"054b79e9-3c1c-46aa-a813-36d78dfa7217":"AppData/054b79e9-3c1c-46aa-a813-36d78dfa7217.roguePrefab","b1dd03d1-30d6-4824-ad0d-eb62c88d8aa2":"AppData/b1dd03d1-30d6-4824-ad0d-eb62c88d8aa2.roguePrefab","b7152b85-7f32-44fc-ac63-e3aff6241d28":"AppData/b7152b85-7f32-44fc-ac63-e3aff6241d28.roguePrefab","35bc250c-2f12-4bd9-b813-f149d1045ff9":"AppData/35bc250c-2f12-4bd9-b813-f149d1045ff9.rogueAnimation","5314d7bb-9f7f-4484-a387-028d7ebb16b6":"AppData/5314d7bb-9f7f-4484-a387-028d7ebb16b6.rogueAnimation","6aa0fe1f-ad2e-43ee-94c2-61fbb266364c":"AppData/6aa0fe1f-ad2e-43ee-94c2-61fbb266364c.rogueAnimation","4e2644b9-8be8-4b37-9cd4-5bc01760d5fb":"AppData/4e2644b9-8be8-4b37-9cd4-5bc01760d5fb.rogueAnimation","c97e0e1a-8f95-49c2-bc23-1e064c5e50e2":"AppData/c97e0e1a-8f95-49c2-bc23-1e064c5e50e2.rogueAnimation","ce700725-33ed-4cdf-b98c-4787f69a2223":"AppData/ce700725-33ed-4cdf-b98c-4787f69a2223.rogueAnimation","1fae0ca2-3e38-431b-8475-ae5b9836710c":"AppData/1fae0ca2-3e38-431b-8475-ae5b9836710c.png","d7c0ad5d-9fb0-4304-8b6d-789cc25b0e79":"AppData/d7c0ad5d-9fb0-4304-8b6d-789cc25b0e79.png","ef8212ed-e4ae-491f-a433-df009b34db52":"AppData/ef8212ed-e4ae-491f-a433-df009b34db52.png","f08b52c4-ca2a-4f50-be8f-e00b09e5e4df":"AppData/f08b52c4-ca2a-4f50-be8f-e00b09e5e4df.rogueMaterial","b70d1958-96c0-43f1-92e8-47e0e6deca62":"AppData/b70d1958-96c0-43f1-92e8-47e0e6deca62.roguePrefab","5c9966c2-951b-426a-8819-c70ca51579b5":"AppData/5c9966c2-951b-426a-8819-c70ca51579b5.roguePrefab","87500c41-20e9-4cf7-84d8-0ed4a80d3ff7":"AppData/87500c41-20e9-4cf7-84d8-0ed4a80d3ff7.roguePrefab","38f9a99e-e4a4-47a1-b44c-3205d637854f":"AppData/38f9a99e-e4a4-47a1-b44c-3205d637854f.roguePrefab","32cf395b-c12f-43e8-a902-5aa7a54b3e9d":"AppData/32cf395b-c12f-43e8-a902-5aa7a54b3e9d.roguePrefab","29c801d8-ffb7-4366-90ec-e4b6dc8c0dbe":"AppData/29c801d8-ffb7-4366-90ec-e4b6dc8c0dbe.png","b42921f6-83a8-437b-8f65-3d4505c6f23c":"AppData/b42921f6-83a8-437b-8f65-3d4505c6f23c.png","f5d3455a-4cc4-4556-aa39-f1f916f46fa4":"AppData/f5d3455a-4cc4-4556-aa39-f1f916f46fa4.png","636d3f21-a7df-42a0-ab16-a397d9c768da":"AppData/636d3f21-a7df-42a0-ab16-a397d9c768da.png","fce5a9d5-086a-4782-89ce-68739671203a":"AppData/fce5a9d5-086a-4782-89ce-68739671203a.png","34a234a6-41f5-4e78-9593-5c14854cff2f":"AppData/34a234a6-41f5-4e78-9593-5c14854cff2f.png","958e20b8-e5ea-43f9-a3d9-cad3bc88db74":"AppData/958e20b8-e5ea-43f9-a3d9-cad3bc88db74.jpg","84c92300-c579-49b8-a8db-714c5512aedf":"AppData/84c92300-c579-49b8-a8db-714c5512aedf.png","78637a2b-1355-4e69-b2af-39dbacb5aa64":"AppData/78637a2b-1355-4e69-b2af-39dbacb5aa64.jpg","f3f69665-f1b6-465d-b946-b6243ea24066":"AppData/f3f69665-f1b6-465d-b946-b6243ea24066.rogueMaterial","31eebf83-ae58-47ce-bfa0-e0cd08a91387":"AppData/31eebf83-ae58-47ce-bfa0-e0cd08a91387.rogueScene"},"namedPrefabUUIDs":{"Rock_3_O_Color1":"054b79e9-3c1c-46aa-a813-36d78dfa7217","Rock_3_P_Color1":"b1dd03d1-30d6-4824-ad0d-eb62c88d8aa2","Rock_3_Q_Color1":"b7152b85-7f32-44fc-ac63-e3aff6241d28","ThirdPersonCharacter":"32cf395b-c12f-43e8-a902-5aa7a54b3e9d","Tree_3_C_Color1":"5c9966c2-951b-426a-8819-c70ca51579b5","ExampleCar":"87500c41-20e9-4cf7-84d8-0ed4a80d3ff7","FirstPersonCharacter":"38f9a99e-e4a4-47a1-b44c-3205d637854f"}});
+window['rogue-engine'].App.play({"title":"Endless","scenes":[{"name":"world1","uuid":"31eebf83-ae58-47ce-bfa0-e0cd08a91387"}],"projectVersion":30,"assetPaths":{"054b79e9-3c1c-46aa-a813-36d78dfa7217":"AppData/054b79e9-3c1c-46aa-a813-36d78dfa7217.roguePrefab","b1dd03d1-30d6-4824-ad0d-eb62c88d8aa2":"AppData/b1dd03d1-30d6-4824-ad0d-eb62c88d8aa2.roguePrefab","b7152b85-7f32-44fc-ac63-e3aff6241d28":"AppData/b7152b85-7f32-44fc-ac63-e3aff6241d28.roguePrefab","35bc250c-2f12-4bd9-b813-f149d1045ff9":"AppData/35bc250c-2f12-4bd9-b813-f149d1045ff9.rogueAnimation","5314d7bb-9f7f-4484-a387-028d7ebb16b6":"AppData/5314d7bb-9f7f-4484-a387-028d7ebb16b6.rogueAnimation","6aa0fe1f-ad2e-43ee-94c2-61fbb266364c":"AppData/6aa0fe1f-ad2e-43ee-94c2-61fbb266364c.rogueAnimation","4e2644b9-8be8-4b37-9cd4-5bc01760d5fb":"AppData/4e2644b9-8be8-4b37-9cd4-5bc01760d5fb.rogueAnimation","c97e0e1a-8f95-49c2-bc23-1e064c5e50e2":"AppData/c97e0e1a-8f95-49c2-bc23-1e064c5e50e2.rogueAnimation","ce700725-33ed-4cdf-b98c-4787f69a2223":"AppData/ce700725-33ed-4cdf-b98c-4787f69a2223.rogueAnimation","1fae0ca2-3e38-431b-8475-ae5b9836710c":"AppData/1fae0ca2-3e38-431b-8475-ae5b9836710c.png","d7c0ad5d-9fb0-4304-8b6d-789cc25b0e79":"AppData/d7c0ad5d-9fb0-4304-8b6d-789cc25b0e79.png","ef8212ed-e4ae-491f-a433-df009b34db52":"AppData/ef8212ed-e4ae-491f-a433-df009b34db52.png","f08b52c4-ca2a-4f50-be8f-e00b09e5e4df":"AppData/f08b52c4-ca2a-4f50-be8f-e00b09e5e4df.rogueMaterial","b70d1958-96c0-43f1-92e8-47e0e6deca62":"AppData/b70d1958-96c0-43f1-92e8-47e0e6deca62.roguePrefab","5c9966c2-951b-426a-8819-c70ca51579b5":"AppData/5c9966c2-951b-426a-8819-c70ca51579b5.roguePrefab","87500c41-20e9-4cf7-84d8-0ed4a80d3ff7":"AppData/87500c41-20e9-4cf7-84d8-0ed4a80d3ff7.roguePrefab","38f9a99e-e4a4-47a1-b44c-3205d637854f":"AppData/38f9a99e-e4a4-47a1-b44c-3205d637854f.roguePrefab","32cf395b-c12f-43e8-a902-5aa7a54b3e9d":"AppData/32cf395b-c12f-43e8-a902-5aa7a54b3e9d.roguePrefab","438905ce-db74-483e-8609-4d1371ea1a15":"AppData/438905ce-db74-483e-8609-4d1371ea1a15.png","353fd7ab-4612-4a05-b7ea-8cf2b585152d":"AppData/353fd7ab-4612-4a05-b7ea-8cf2b585152d.png","f57be6d7-9031-453c-a06b-2e7bb3fbda9d":"AppData/f57be6d7-9031-453c-a06b-2e7bb3fbda9d.png","0233316f-3b99-43b2-952c-d7b73e23b09a":"AppData/0233316f-3b99-43b2-952c-d7b73e23b09a.png","c3818102-6945-4558-bbcc-fd27e915ac8b":"AppData/c3818102-6945-4558-bbcc-fd27e915ac8b.png","5aebac88-a745-406e-8f97-9c01b8c0e033":"AppData/5aebac88-a745-406e-8f97-9c01b8c0e033.png","958e20b8-e5ea-43f9-a3d9-cad3bc88db74":"AppData/958e20b8-e5ea-43f9-a3d9-cad3bc88db74.jpg","84c92300-c579-49b8-a8db-714c5512aedf":"AppData/84c92300-c579-49b8-a8db-714c5512aedf.png","78637a2b-1355-4e69-b2af-39dbacb5aa64":"AppData/78637a2b-1355-4e69-b2af-39dbacb5aa64.jpg","f3f69665-f1b6-465d-b946-b6243ea24066":"AppData/f3f69665-f1b6-465d-b946-b6243ea24066.rogueMaterial","31eebf83-ae58-47ce-bfa0-e0cd08a91387":"AppData/31eebf83-ae58-47ce-bfa0-e0cd08a91387.rogueScene"},"namedPrefabUUIDs":{"Rock_3_O_Color1":"054b79e9-3c1c-46aa-a813-36d78dfa7217","Rock_3_P_Color1":"b1dd03d1-30d6-4824-ad0d-eb62c88d8aa2","Rock_3_Q_Color1":"b7152b85-7f32-44fc-ac63-e3aff6241d28","ThirdPersonCharacter":"32cf395b-c12f-43e8-a902-5aa7a54b3e9d","Tree_3_C_Color1":"5c9966c2-951b-426a-8819-c70ca51579b5","ExampleCar":"87500c41-20e9-4cf7-84d8-0ed4a80d3ff7","FirstPersonCharacter":"38f9a99e-e4a4-47a1-b44c-3205d637854f"}});
