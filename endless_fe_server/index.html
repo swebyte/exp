@@ -59,6 +59,7 @@
       });
     }
   </script>
-  <script onload="onRogueScriptLoaded()" src="AppData/build.js"></script>
+  <!-- data-cfasync="false" prevents Cloudflare Rocket Loader from deferring this script -->
+  <script data-cfasync="false" onload="onRogueScriptLoaded()" src="AppData/build.js"></script>
 </body>
 </html>
