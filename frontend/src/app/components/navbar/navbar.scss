@@ -1,66 +1,163 @@
-/* Navbar responsive sizing for mobile views (adjusted larger) */
+// ── Base navbar ──────────────────────────────────────────────────────────────
 
-@media (max-width: 991.98px) {
-  .navbar {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
+.navbar-custom {
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
 
-  //   .navbar .container {
-  //     padding-left: 1rem;
-  //     padding-right: 1rem;
-  //   }
-
-  .navbar-brand {
-    font-size: 1.15rem;
-    padding: 0;
-  }
-
-  .navbar-toggler {
-    padding: 0.4rem 0.6rem;
-  }
-
-  //   .navbar-nav .nav-link {
-  //     padding: 0.45rem 0.6rem;
-  //     font-size: 1rem;
-  //   }
-
-  .login-btn {
-    padding: 0.35rem 0.6rem;
-    font-size: 0.9rem;
+  &.scrolled {
+    background: rgba(0, 0, 0, 0.97);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   }
 }
 
-@media (max-width: 767.98px) {
-  .navbar {
-    padding-top: 0.45rem;
-    padding-bottom: 0.45rem;
-  }
+// ── Brand ────────────────────────────────────────────────────────────────────
 
-  //   .navbar .container {
-  //     padding-left: 0.75rem;
-  //     padding-right: 0.75rem;
-  //   }
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #fff !important;
+  padding: 0;
+  transition: opacity 0.2s ease;
 
-  .navbar-brand {
-    font-size: 1.1rem;
-  }
-
-  //   .navbar-nav .nav-link {
-  //     padding: 0.35rem 0.5rem;
-  //     font-size: 0.98rem;
-  //   }
-
-  .navbar-toggler {
-    padding: 0.35rem 0.55rem;
+  &:hover {
+    opacity: 0.85;
   }
 }
 
-/* Animated hamburger (Bootstrap) and remove grey highlight */
+// ── Heartbeat SVG ─────────────────────────────────────────────────────────────
+
+.hb-svg {
+  width: 80px;
+  height: 22px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.hb-path {
+  fill: none;
+  stroke: #00ff41;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 3px rgba(0, 255, 65, 0.8));
+  /* Path is 130px. Start fully hidden, animate to fully drawn. */
+  stroke-dasharray: 130;
+  stroke-dashoffset: 130;
+  opacity: 0;
+  animation: hb-draw 3s linear infinite;
+}
+
+/* Draw takes ~900ms (same speed as before), then ~2.1s pause */
+@keyframes hb-draw {
+  /* Fade in, draw flat baseline — slow */
+  0%   { stroke-dashoffset: 130; opacity: 0; }
+  1%   { stroke-dashoffset: 130; opacity: 1; }
+  10%  { stroke-dashoffset: 103; opacity: 1; }  /* 27px — flat */
+
+  /* QRS spike — fast */
+  18%  { stroke-dashoffset: 45;  opacity: 1; }  /* 85px — spike done */
+
+  /* T-wave + exit flat — medium */
+  23%  { stroke-dashoffset: 0;   opacity: 1; }  /* fully drawn */
+
+  /* Hold then fade out */
+  26%  { stroke-dashoffset: 0;   opacity: 1; }
+  30%  { stroke-dashoffset: 0;   opacity: 0; }
+
+  /* Invisible reset → ~2.1s pause before next beat */
+  31%  { stroke-dashoffset: 130; opacity: 0; }
+  100% { stroke-dashoffset: 130; opacity: 0; }
+}
+
+// ── Nav links ────────────────────────────────────────────────────────────────
+
+.navbar-nav .nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.4rem 0.75rem !important;
+  transition: color 0.2s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0.75rem;
+    right: 0.75rem;
+    height: 2px;
+    background: #00ff41;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left center;
+  }
+
+  &:hover {
+    color: #00ff41 !important;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &.active {
+    color: #00ff41 !important;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+// ── Action button ────────────────────────────────────────────────────────────
+
+.btn-nav-action {
+  padding: 0.42rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #00ff41;
+  border: 1.5px solid rgba(0, 255, 65, 0.4);
+  border-radius: 0;
+  background: transparent;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+
+  &:hover {
+    background: rgba(0, 255, 65, 0.1);
+    border-color: #00ff41;
+    color: #00ff41;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// ── Toggler ──────────────────────────────────────────────────────────────────
+
 .navbar-toggler {
   background: transparent !important;
   border: none !important;
   -webkit-tap-highlight-color: transparent;
+  padding: 0.4rem 0.5rem;
 }
 
 .navbar-toggler:focus,
@@ -70,15 +167,16 @@
   background-color: transparent !important;
 }
 
-/* hide default icon if present */
 .navbar-toggler .navbar-toggler-icon {
   display: none !important;
 }
 
+// ── Hamburger ────────────────────────────────────────────────────────────────
+
 .hamburger {
   display: inline-block;
-  width: 30px;
-  height: 18px;
+  width: 26px;
+  height: 17px;
   position: relative;
 }
 
@@ -90,28 +188,55 @@
   background-color: #fff;
   border-radius: 2px;
   display: block;
-  transition: transform 250ms ease, top 250ms ease, opacity 200ms ease;
+  transition:
+    transform 240ms ease,
+    top 240ms ease,
+    opacity 180ms ease;
 }
 
-.hamburger span:nth-child(1) {
-  top: 0;
-}
-.hamburger span:nth-child(2) {
-  top: 8px;
-}
-.hamburger span:nth-child(3) {
-  top: 16px;
-}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 7px; }
+.hamburger span:nth-child(3) { top: 14px; }
 
 .hamburger.open span:nth-child(1) {
-  top: 8px;
+  top: 7px;
   transform: rotate(45deg);
 }
 .hamburger.open span:nth-child(2) {
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateX(16px);
 }
 .hamburger.open span:nth-child(3) {
-  top: 8px;
+  top: 7px;
   transform: rotate(-45deg);
+}
+
+// ── Responsive ───────────────────────────────────────────────────────────────
+
+@media (max-width: 991.98px) {
+  .navbar-custom {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .navbar-collapse {
+    padding: 1rem 0 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 0.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.55rem 0.5rem !important;
+    font-size: 0.95rem;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .btn-nav-action {
+    margin-top: 0.75rem;
+    margin-left: 0 !important;
+    width: 100%;
+  }
 }

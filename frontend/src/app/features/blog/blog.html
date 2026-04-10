@@ -1,45 +1,47 @@
-<div class="container mt-4">
-  <div class="blog-container">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <div>
-        <h1>Blog</h1>
-        <p class="lead">Read the latest articles.</p>
-      </div>
-      @if (authService.isAuthenticated()) {
-      <button class="btn btn-primary" (click)="openNewBlogModal()">
-        <i class="bi bi-plus-circle pe-1"> </i> New Blog
-      </button>
-      }
-    </div>
+<div class="blog-page">
 
-    <div class="posts-list mt-4">
+  <!-- ── Page Header ─────────────────────────────────────────────────── -->
+  <div class="blog-header">
+    <div class="page-container">
+      <p class="page-eyebrow">Writing</p>
+      <div class="page-header-row">
+        <div>
+          <h1 class="page-title">Blog</h1>
+          <p class="page-subtitle">Thoughts, guides and things I've learned.</p>
+        </div>
+        @if (authService.isAuthenticated()) {
+          <button class="btn btn-primary" (click)="openNewBlogModal()">
+            <i class="bi bi-plus-circle pe-1"></i> New Post
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Posts ───────────────────────────────────────────────────────── -->
+  <div class="page-container blog-content">
+    <div class="posts-list">
       @for (post of posts(); track post.title) {
-      <article class="post-item">
-        <div class="d-flex justify-content-between align-items-start">
-          <div class="flex-grow-1">
-            <h2 class="post-title">{{ post.title }}</h2>
-            <p class="post-date text-muted">
-              @if (post.author) { By {{ post.author }} • }
-              {{ post.created_at | date : 'MMMM d, yyyy' }}
-              @if(post.likes !== undefined && post.likes > 0) { • {{ post.likes }} Likes }
-            </p>
-          </div>
-          <div class="d-flex flex-column align-items-end" style="gap: 0.5rem">
+        <article class="post-item">
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="flex-grow-1">
+              <h2 class="post-title">{{ post.title }}</h2>
+              <p class="post-date">
+                @if (post.author) { By {{ post.author }} &nbsp;·&nbsp; }
+                {{ post.created_at | date : 'MMMM d, yyyy' }}
+                @if (post.likes !== undefined && post.likes > 0) { &nbsp;·&nbsp; {{ post.likes }} likes }
+              </p>
+            </div>
             @if (authService.isAuthenticated()) {
-            <button
-              class="btn btn-link text-danger delete-btn"
-              (click)="deleteBlogPost(post.id)"
-              title="Delete post"
-            >
-              <i class="bi bi-trash"></i>
-            </button>
+              <button class="btn btn-link text-danger action-btn" (click)="deleteBlogPost(post.id)" title="Delete">
+                <i class="bi bi-trash"></i>
+              </button>
             }
           </div>
-        </div>
-        <!-- <p class="post-body">{{ post.body }}</p> -->
-        <a [routerLink]="['/blog', post.id]" class="read-more">Read More →</a>
-      </article>
+          <a [routerLink]="['/blog', post.id]" class="read-more">Read More →</a>
+        </article>
       }
     </div>
   </div>
+
 </div>

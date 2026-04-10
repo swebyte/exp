@@ -1,4 +1,5 @@
-import { Component, inject, signal, OnDestroy } from '@angular/core';
+import { Component, inject, signal, OnDestroy, HostListener, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { NgbCollapse, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../login/login';
@@ -13,9 +14,21 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent {
   isMenuCollapsed = true;
+  isScrolled = signal(false);
+
   private modalService = inject(NgbModal);
   protected authService = inject(AuthService);
   private router = inject(Router);
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    if (this.isBrowser) {
+      this.isScrolled.set(window.scrollY > 20);
+    }
+  }
+
   private _routerSub = this.router.events.subscribe((ev) => {
     if (ev instanceof NavigationEnd) {
       // Close the mobile menu when navigation finishes on small screens

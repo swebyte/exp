@@ -1,41 +1,53 @@
-<div class="container mt-4">
-  <div class="experience-container">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <div>
-        <h1>Experience</h1>
-        <h5>{{ numYearsInBusiness() }} years in the business</h5>
-      </div>
-      @if (authService.isAuthenticated()) {
-      <button class="btn btn-primary" (click)="openNewExperienceModal()">
-        <i class="bi bi-plus-circle pe-1"></i> New Experience
-      </button>
-      }
-    </div>
+<div class="exp-page">
 
-    <div class="timeline mt-4">
-      @for (exp of experiences(); track exp.created_at) {
-      <div class="timeline-item">
-        <div class="timeline-badge"></div>
-        <experience-card [experience]="exp" [isLifeEvent]="exp.type === ExpericeType_LifeEvent">
-          @if (authService.isAuthenticated()) {
-          <button
-            class="btn btn-link text-primary"
-            (click)="openEditExperienceModal(exp)"
-            title="Edit experience"
-          >
-            <i class="bi bi-pencil"></i>
+  <!-- ── Page Header ──────────────────────────────────────────────────── -->
+  <div class="exp-header">
+    <div class="exp-container">
+      <p class="exp-eyebrow">Career History</p>
+      <div class="exp-header-row">
+        <div>
+          <h1 class="exp-title">Experience</h1>
+          <p class="exp-subtitle">{{ numYearsInBusiness() }} years in the industry</p>
+        </div>
+        @if (authService.isAuthenticated()) {
+          <button class="btn btn-primary" (click)="openNewExperienceModal()">
+            <i class="bi bi-plus-circle pe-1"></i> New Experience
           </button>
-          <button
-            class="btn btn-link text-danger delete-btn"
-            (click)="deleteExperience(exp.id)"
-            title="Delete experience"
-          >
-            <i class="bi bi-trash"></i>
-          </button>
-          }
-        </experience-card>
+        }
       </div>
+    </div>
+  </div>
+
+  <!-- ── Timeline ─────────────────────────────────────────────────────── -->
+  <div class="exp-container exp-timeline-wrap">
+    <div class="timeline">
+      @for (exp of experiences(); track exp.created_at) {
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <experience-card
+            [experience]="exp"
+            [isLifeEvent]="exp.type === ExpericeType_LifeEvent"
+          >
+            @if (authService.isAuthenticated()) {
+              <button
+                class="btn btn-link text-primary action-btn"
+                (click)="openEditExperienceModal(exp)"
+                title="Edit"
+              >
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button
+                class="btn btn-link text-danger action-btn"
+                (click)="deleteExperience(exp.id)"
+                title="Delete"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
+            }
+          </experience-card>
+        </div>
       }
     </div>
   </div>
+
 </div>

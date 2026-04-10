@@ -1,113 +1,109 @@
-.experience-container {
-  h1 {
-    margin-bottom: 1rem;
+// ── Page wrapper ──────────────────────────────────────────────────────────────
+
+.exp-page {
+  min-height: 100dvh;
+  background: #111111;
+}
+
+// ── Shared container ──────────────────────────────────────────────────────────
+
+.exp-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.exp-header {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid #2e2e2e;
+  margin-bottom: 3.5rem;
+}
+
+.exp-eyebrow {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #00ff41;
+  margin-bottom: 0.75rem;
+}
+
+.exp-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.exp-subtitle {
+  font-size: 0.95rem;
+  color: #999999;
+  margin: 0;
+}
+
+.exp-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+// ── Timeline ──────────────────────────────────────────────────────────────────
+
+.exp-timeline-wrap {
+  padding-bottom: 5rem;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      #00ff41 0%,
+      rgba(0, 255, 65, 0.3) 60%,
+      rgba(0, 255, 65, 0.05) 100%
+    );
   }
+}
 
-  .lead {
-    color: #6c757d;
-    margin-bottom: 2rem;
-  }
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
 
-  .timeline {
-    position: relative;
-    padding-left: 2rem;
+.timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 1.6rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00ff41;
+  border: 2.5px solid #111111;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.6);
+  z-index: 2;
+}
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: 10px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #e9ecef;
-    }
+// ── Admin actions ─────────────────────────────────────────────────────────────
 
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
+.action-btn {
+  padding: 0.2rem 0.4rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
 
-      .timeline-badge {
-        position: absolute;
-        left: -2rem;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: #000000;
-        border: 3px solid #fff;
-        box-shadow: 0 0 0 2px #e9ecef;
-      }
-
-      .card {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-        .card-title {
-          color: #495057;
-          font-weight: 600;
-        }
-
-        .delete-btn {
-          padding: 0.25rem 0.5rem;
-          opacity: 0.6;
-          transition: opacity 0.2s;
-
-          &:hover {
-            opacity: 1;
-          }
-
-          i {
-            font-size: 1rem;
-          }
-        }
-
-        ul {
-          margin-bottom: 0;
-        }
-      }
-
-      /* life-event-card styles moved to component SCSS */
-
-      /* Pointer for regular experience cards */
-      .card:not(.life-event-card) {
-        position: relative;
-        overflow: visible;
-        margin-left: 1.6rem; /* slightly less nudge than life-event */
-
-        &::before {
-          /* outer border triangle */
-          content: '';
-          position: absolute;
-          left: -30px;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 0;
-          height: 0;
-          border-top: 12px solid transparent;
-          border-bottom: 12px solid transparent;
-          border-right: 12px solid #e9ecef; /* subtle outer border */
-          z-index: 1;
-        }
-
-        &::after {
-          /* inner background triangle */
-          content: '';
-          position: absolute;
-          left: -26px;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 0;
-          height: 0;
-          border-top: 10px solid transparent;
-          border-bottom: 10px solid transparent;
-          border-right: 10px solid #ffffff; /* card background */
-          z-index: 2;
-        }
-      }
-
-      .timeline-badge {
-        z-index: 4;
-      }
-    }
+  &:hover {
+    opacity: 1;
   }
 }

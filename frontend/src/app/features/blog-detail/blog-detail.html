@@ -1,51 +1,53 @@
-<div class="container mt-4">
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <div>
-      <button class="btn ps-0" (click)="goBack()">
-        <i class="bi bi-arrow-left pe-2"></i> Back
+<div class="blog-detail-page">
+
+  <!-- ── Page Header ─────────────────────────────────────────────────── -->
+  <div class="blog-detail-header">
+    <div class="page-container">
+      <button class="back-btn" (click)="goBack()">
+        <i class="bi bi-arrow-left"></i> Back
       </button>
     </div>
   </div>
-  <div class="blog-detail-container">
+
+  <!-- ── Content ─────────────────────────────────────────────────────── -->
+  <div class="page-container blog-detail-content">
+
     @if (loading()) {
-    <div class="text-center">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-    } @else if (post()) {
-
-    <article class="blog-post">
-      <div class="d-flex justify-content-between align-items-start mb-3">
-        <h1 class="post-title">{{ post()!.title }}</h1>
-        @if (authService.isAuthenticated()) {
-        <div class="d-flex gap-1">
-          <button class="btn btn-link text-primary" (click)="openEditBlogModal()" title="Edit post">
-            <i class="bi bi-pencil"></i>
-          </button>
-          <button
-            class="btn btn-link text-danger delete-btn"
-            (click)="deleteBlogPost()"
-            title="Delete post"
-          >
-            <i class="bi bi-trash"></i>
-          </button>
+      <div class="text-center" style="padding-top: 4rem;">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
-        }
       </div>
+    } @else if (post()) {
+      <article class="blog-post">
 
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <p class="post-date text-muted mb-0">
-          @if (post()!.author) { By {{ post()!.author }} • }
-          {{ post()!.created_at | date : 'MMMM d, yyyy' }}
-        </p>
-        <app-like-button [postId]="post()!.id" [count]="post()!.likes || 0" />
-      </div>
+        <div class="post-meta">
+          <p class="post-date">
+            @if (post()!.author) { By {{ post()!.author }} &nbsp;·&nbsp; }
+            {{ post()!.created_at | date : 'MMMM d, yyyy' }}
+          </p>
+          <div class="post-actions">
+            <app-like-button [postId]="post()!.id" [count]="post()!.likes || 0" />
+            @if (authService.isAuthenticated()) {
+              <button class="btn btn-link text-primary action-btn" (click)="openEditBlogModal()" title="Edit">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-link text-danger action-btn" (click)="deleteBlogPost()" title="Delete">
+                <i class="bi bi-trash"></i>
+              </button>
+            }
+          </div>
+        </div>
 
-      <div class="post-body">
-        <markdown [data]="post()!.body"></markdown>
-      </div>
-    </article>
+        <h1 class="post-title">{{ post()!.title }}</h1>
+
+        <div class="post-body">
+          <markdown [data]="post()!.body"></markdown>
+        </div>
+
+      </article>
     }
+
   </div>
+
 </div>

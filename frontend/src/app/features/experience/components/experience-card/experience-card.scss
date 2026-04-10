@@ -1,108 +1,152 @@
-.card {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// ── Normal experience card ─────────────────────────────────────────────────
+
+.exp-card {
+  background: #1a1a1a;
+  border: 1px solid #2e2e2e;
+  border-left: 3px solid rgba(0, 255, 65, 0.3);
+  border-radius: 0;
+  padding: 1.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-left-color: #00ff41;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
 }
 
-/* life-event and normal card pointer styling moved here */
-.life-event-card {
-  background: linear-gradient(180deg, #f8f9fa, #e9ecef);
-  border: 1px solid rgba(108, 117, 125, 0.12);
+.exp-card-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 1.5rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
 
-  .card-body {
-    padding: 1.25rem;
+.exp-role {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #00ff41;
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+
+.exp-company {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(0, 255, 65, 0.65);
+  margin: 0;
+
+  i {
+    font-size: 0.9rem;
+    margin-right: 0.3rem;
+    opacity: 0.7;
+  }
+}
+
+.exp-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.exp-dates {
+  font-size: 0.9rem;
+  color: #999999;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+
+  i {
+    font-size: 0.95rem;
+    margin-right: 0.3rem;
+  }
+}
+
+.exp-card-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.exp-card-body {
+  color: #d4d4d4;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  border-top: 1px solid #2e2e2e;
+  padding-top: 1rem;
+
+  ul {
+    padding-left: 1.25rem;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.3rem;
+
+      &::marker {
+        color: #00ff41;
+      }
+    }
   }
 
-  .event-circle {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: #6c757d;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.125rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  }
-
-  h5,
   p {
-    color: #495057;
-  }
+    color: #d4d4d4;
+    margin-bottom: 0.5rem;
 
-  position: relative;
-  overflow: visible;
-  margin-left: 1.6rem; /* match regular card spacing */
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
-/* Show the left pointer triangles only on desktop */
-@media (min-width: 1024px) {
-  /* Pointer for regular experience cards */
-  .card:not(.life-event-card) {
-    position: relative;
-    overflow: visible;
-    margin-left: 1.6rem; /* slightly less nudge than life-event */
+// ── Life event card ────────────────────────────────────────────────────────
+
+.life-event {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(0, 255, 65, 0.04);
+  border: 1px solid rgba(0, 255, 65, 0.15);
+  border-radius: 0;
+  padding: 1rem 1.5rem;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: rgba(0, 255, 65, 0.35);
   }
+}
 
-  .life-event-card {
-    &::before {
-      /* outer subtle border like regular cards */
-      content: '';
-      position: absolute;
-      left: -30px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      border-right: 12px solid #e9ecef; /* subtle outer border */
-      z-index: 1;
-    }
+.life-event-year {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(0, 255, 65, 0.08);
+  border: 2px solid rgba(0, 255, 65, 0.3);
+  color: #00ff41;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 14px rgba(0, 255, 65, 0.15);
+}
 
-    &::after {
-      /* inner background triangle matching card background */
-      content: '';
-      position: absolute;
-      left: -26px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-right: 10px solid #ffffff; /* life-event card background */
-      z-index: 2;
-    }
-  }
+.life-event-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.15rem;
+}
 
-  .card:not(.life-event-card) {
-    &::before {
-      content: '';
-      position: absolute;
-      left: -30px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      border-right: 12px solid #e9ecef; /* subtle outer border */
-      z-index: 1;
-    }
+.life-event-desc {
+  font-size: 0.95rem;
+  color: #999999;
+  margin: 0;
+}
 
-    &::after {
-      content: '';
-      position: absolute;
-      left: -26px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-right: 10px solid #ffffff; /* card background */
-      z-index: 2;
-    }
-  }
+.life-event-actions {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.4rem;
 }

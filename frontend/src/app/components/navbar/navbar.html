@@ -1,7 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom" [class.scrolled]="isScrolled()">
   <div class="container">
     <a class="navbar-brand" routerLink="/">
       <app-animated-text text="Vincent Karlsson"></app-animated-text>
+      <svg class="hb-svg" viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="hb-path"
+          d="M 0,14 L 22,14 L 26,18 L 30,1 L 34,27 L 38,14 L 43,10 L 48,14 L 80,14"
+        />
+      </svg>
     </a>
     <button
       class="navbar-toggler"
@@ -21,27 +26,27 @@
     <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="isMenuCollapsed">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about" routerLinkActive="active"> About </a>
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/blog/" routerLinkActive="active"> Blog </a>
+          <a class="nav-link" routerLink="/blog/" routerLinkActive="active">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/experience/" routerLinkActive="active"> Experience </a>
+          <a class="nav-link" routerLink="/experience/" routerLinkActive="active">Experience</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/iframe" routerLinkActive="active"> Game </a>
+          <a class="nav-link" routerLink="/iframe" routerLinkActive="active">Game</a>
         </li>
         @if (authService.isAuthenticated()) {
           <li class="nav-item">
-            <a class="nav-link" routerLink="/profile/" routerLinkActive="active"> Profile </a>
+            <a class="nav-link" routerLink="/profile/" routerLinkActive="active">Profile</a>
           </li>
         }
       </ul>
       @if (authService.isAuthenticated()) {
-        <button class="btn btn-secondary btn-sm ms-2 login-btn" (click)="logout()">Logout</button>
+        <button class="btn btn-nav-action ms-3" (click)="logout()">Logout</button>
       } @else {
-        <button class="btn btn-secondary btn-sm ms-2 login-btn" (click)="openLogin()">Login</button>
+        <button class="btn btn-nav-action ms-3" (click)="openLogin()">Login</button>
       }
     </div>
   </div>

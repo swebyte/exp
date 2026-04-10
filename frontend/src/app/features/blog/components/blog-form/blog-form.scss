@@ -1,8 +1,9 @@
 .modal-header {
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #2e2e2e !important;
 
   .modal-title {
     font-weight: 600;
+    color: #ffffff;
   }
 }
 
@@ -13,12 +14,7 @@
     .form-label {
       font-weight: 500;
       margin-bottom: 0.5rem;
-    }
-
-    .form-control {
-      &:focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-      }
+      color: #d4d4d4;
     }
 
     textarea.form-control {

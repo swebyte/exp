@@ -1,95 +1,180 @@
-<div class="container p-0">
-  <div class="about-container">
-    <div class="row g-0">
-      <div class="col-md-6">
-        <div class="profile-image-container">
-          <img
-            src="/vk1.webp"
-            alt="Vincent Karlsson"
-            class="profile-image"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="content-section">
-          <h1>About Me</h1>
-          <p class="lead">
-            Vincent is a curious and driven problem solver who always strives to develop and
-            streamline work through new technologies and strategies.
-          </p>
+<div class="about-page">
 
-          <p>
-            He has a positive attitude towards the idea that teamwork and a focus on health create
-            the foundation for all solutions😀
-          </p>
-
-          <p>
-            Vincent continuously develops his skills both during work and in his spare time to stay
-            updated in the ever-changing world of technology.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row g-0">
-      <div class="content-section">
-        <h4 class="text-center my-4">Connect</h4>
-        <p class="text-center mb-4">
+  <!-- ── Matrix Hero ─────────────────────────────────────── -->
+  <section class="matrix-hero">
+    <canvas #matrixCanvas class="matrix-canvas" aria-hidden="true"></canvas>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Hello, I'm</p>
+        <h1 class="hero-name">Vincent Karlsson</h1>
+        <p class="hero-tagline">Fullstack Developer &nbsp;·&nbsp; Software Engineer &nbsp;·&nbsp; Problem Solver</p>
+        <div class="hero-ctas">
+          <a href="/Karlsson_Vincent_Eng.pdf" download class="cta-primary">
+            <i class="bi bi-download" aria-hidden="true"></i> Download CV
+          </a>
           <a
             href="https://linkedin.com/in/vincent-karlsson-284740149"
             target="_blank"
             rel="noopener noreferrer"
-            class="me-3"
+            class="cta-outline"
+            aria-label="LinkedIn profile"
           >
-            <i class="bi bi-linkedin"></i> LinkedIn
+            <i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn
           </a>
-          <a href="https://github.com/swebyte" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-github"></i> GitHub
-          </a>
-        </p>
-        <div class="text-center">
-          <a href="/Karlsson_Vincent_Eng.pdf" download class="btn btn-primary btn-sm">
-            <i class="bi bi-download"></i> Download CV
+          <a
+            href="https://github.com/swebyte"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-outline"
+            aria-label="GitHub profile"
+          >
+            <i class="bi bi-github" aria-hidden="true"></i> GitHub
           </a>
         </div>
       </div>
     </div>
-    <div class="row g-0">
-      <div class="col-md-6">
-        <div class="content-section">
-          <h5>Tools</h5>
-          <p>
-            Postman, Docker, Git, MySQL Workbench, pgAdmin, Azure, Azure DevOps, Atlassian, Jira,
-            Confluence, Visual Studio Code, Visual Studio
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── About Section ───────────────────────────────────── -->
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-grid">
+        <div class="about-image-col" data-animate="fade-right">
+          <div class="image-frame">
+            <img
+              src="/vk1.webp"
+              alt="Vincent Karlsson"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <div class="about-text-col">
+          <p class="section-eyebrow" data-animate="fade-up">About Me</p>
+          <h2 class="section-heading" data-animate="fade-up">
+            Curious. Driven. <em>Collaborative.</em>
+          </h2>
+          <p class="about-lead" data-animate="fade-up">
+            A curious and driven problem solver who always strives to develop and streamline
+            work through new technologies and strategies.
           </p>
-
-          <h5>Methodologies</h5>
-          <p>
-            Clean Architecture, SOLID Principles, Agile, Test Driven Development, Lean, Kanban,
-            Scrum
+          <p class="about-body" data-animate="fade-up">
+            Firm believer that teamwork and a focus on health create the foundation for all
+            great solutions — building software that is both effective and genuinely human.
           </p>
-
-          <h5>Programming Languages</h5>
-          <p>TypeScript, JavaScript, Python, C#, C++, SQL, LUA, Golang</p>
-
-          <h5>Databases</h5>
-          <p>MySQL, PostgreSQL, MongoDB, Microsoft SQL</p>
-
-          <h5>Frameworks</h5>
-          <p>
-            .NET, .NET Core, .NET Framework, .NET MAUI, .NET Blazor, Entity Framework, Node.js,
-            Angular, gRPC
+          <p class="about-body" data-animate="fade-up">
+            Continuously developing skills both during work and spare time to stay sharp in
+            an ever-changing world of technology.
           </p>
-
-          <h5>Languages</h5>
-          <p>Swedish (Native), English (Fluent)</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="col-md-6">
-        <div class="content-section"></div>
+  <!-- ── Skills Section ─────────────────────────────────── -->
+  <section class="skills-section">
+    <div class="about-container">
+      <div class="skills-header" data-animate="fade-up">
+        <p class="section-eyebrow">Expertise</p>
+        <h2 class="section-heading">Skills &amp; Technologies</h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card" data-animate="fade-up">
+          <div class="skill-card-icon">
+            <i class="bi bi-code-slash" aria-hidden="true"></i>
+          </div>
+          <h6 class="skill-card-title">Languages</h6>
+          <div class="tag-list">
+            <span class="tag">TypeScript</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">C#</span>
+            <span class="tag">C++</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Golang</span>
+            <span class="tag">LUA</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-animate="fade-up">
+          <div class="skill-card-icon">
+            <i class="bi bi-layers" aria-hidden="true"></i>
+          </div>
+          <h6 class="skill-card-title">Frameworks</h6>
+          <div class="tag-list">
+            <span class="tag">.NET</span>
+            <span class="tag">Angular</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">.NET MAUI</span>
+            <span class="tag">.NET Blazor</span>
+            <span class="tag">Entity Framework</span>
+            <span class="tag">gRPC</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-animate="fade-up">
+          <div class="skill-card-icon">
+            <i class="bi bi-database" aria-hidden="true"></i>
+          </div>
+          <h6 class="skill-card-title">Databases</h6>
+          <div class="tag-list">
+            <span class="tag">MySQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Microsoft SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-animate="fade-up">
+          <div class="skill-card-icon">
+            <i class="bi bi-cloud" aria-hidden="true"></i>
+          </div>
+          <h6 class="skill-card-title">Tools &amp; Cloud</h6>
+          <div class="tag-list">
+            <span class="tag">Docker</span>
+            <span class="tag">Git</span>
+            <span class="tag">Azure</span>
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">Postman</span>
+            <span class="tag">Jira</span>
+            <span class="tag">Confluence</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-animate="fade-up">
+          <div class="skill-card-icon">
+            <i class="bi bi-kanban" aria-hidden="true"></i>
+          </div>
+          <h6 class="skill-card-title">Methodologies</h6>
+          <div class="tag-list">
+            <span class="tag">Clean Architecture</span>
+            <span class="tag">SOLID</span>
+            <span class="tag">Agile</span>
+            <span class="tag">TDD</span>
+            <span class="tag">Scrum</span>
+            <span class="tag">Lean</span>
+            <span class="tag">Kanban</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-animate="fade-up">
+          <div class="skill-card-icon">
+            <i class="bi bi-translate" aria-hidden="true"></i>
+          </div>
+          <h6 class="skill-card-title">Spoken Languages</h6>
+          <div class="tag-list">
+            <span class="tag tag-lang">Swedish <em>Native</em></span>
+            <span class="tag tag-lang">English <em>Fluent</em></span>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
+  </section>
+
 </div>
